@@ -1,0 +1,210 @@
+{% extends "mahjong/base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <p class="card-eyebrow">PLAYER PROFILE</p>
+    <h2>{{ player.name }}</h2>
+    <p>個人成績</p>
+</div>
+
+<div class="card">
+    <div class="stat-grid">
+        <div class="stat-box stat-main">
+            <p class="stat-label">総収支</p>
+            <p class="stat-value">{{ total_profit|floatformat:1 }}</p>
+        </div>
+        <div class="stat-box">
+            <p class="stat-label">対局数</p>
+            <p class="stat-value">{{ game_count }}</p>
+        </div>
+        <div class="stat-box">
+            <p class="stat-label">平均着順</p>
+            <p class="stat-value">{{ average_rank|floatformat:2 }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="stat-grid">
+        <div class="stat-box">
+            <p class="stat-label">トップ率</p>
+            <p class="stat-value stat-good">{{ top_rate|floatformat:1 }}%</p>
+        </div>
+        <div class="stat-box">
+            <p class="stat-label">ラス率</p>
+            <p class="stat-value stat-bad">{{ last_rate|floatformat:1 }}%</p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h3>着順分布</h3>
+    <div class="rank-bars">
+        <div class="rank-bar-row">
+            <span class="rank-chip r1">1</span>
+            <div class="rank-bar-track"><div class="rank-bar-fill r1" style="width: {% widthratio first_count game_count 100 %}%;"></div></div>
+            <span class="rank-bar-count">{{ first_count }}回</span>
+        </div>
+        <div class="rank-bar-row">
+            <span class="rank-chip r2">2</span>
+            <div class="rank-bar-track"><div class="rank-bar-fill r2" style="width: {% widthratio second_count game_count 100 %}%;"></div></div>
+            <span class="rank-bar-count">{{ second_count }}回</span>
+        </div>
+        <div class="rank-bar-row">
+            <span class="rank-chip r3">3</span>
+            <div class="rank-bar-track"><div class="rank-bar-fill r3" style="width: {% widthratio third_count game_count 100 %}%;"></div></div>
+            <span class="rank-bar-count">{{ third_count }}回</span>
+        </div>
+        <div class="rank-bar-row">
+            <span class="rank-chip r4">4</span>
+            <div class="rank-bar-track"><div class="rank-bar-fill r4" style="width: {% widthratio fourth_count game_count 100 %}%;"></div></div>
+            <span class="rank-bar-count">{{ fourth_count }}回</span>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h3>累積収支</h3>
+    <canvas id="profitChart"></canvas>
+</div>
+
+<div class="card">
+    <h3>対局履歴</h3>
+
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>戦</th>
+                <th>日付</th>
+                <th>着順</th>
+                <th class="num">点数</th>
+                <th class="num">収支</th>
+            </tr>
+
+            {% for result in results %}
+            <tr>
+                <td>第{{ result.game.game_number }}戦</td>
+                <td>{{ result.game.date }}</td>
+                <td><span class="rank-chip r{{ result.rank }}">{{ result.rank }}</span></td>
+                <td class="num">{{ result.score }}点</td>
+                <td class="num">{{ result.profit|floatformat:1 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <a class="back-link" href="/">← トップへ戻る</a>
+</div>
+
+<style>
+    .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        gap: 10px;
+    }
+
+    .stat-box {
+        background: rgba(212,175,55,0.05);
+        border: 1px solid var(--rail-line);
+        border-radius: var(--radius-md);
+        padding: 14px 12px;
+        text-align: center;
+    }
+
+    .stat-main {
+        grid-column: 1 / -1;
+        background: rgba(212,175,55,0.1);
+    }
+
+    .stat-label {
+        margin: 0 0 6px;
+        font-size: 12px;
+        color: var(--ivory-300);
+        letter-spacing: 0.04em;
+    }
+
+    .stat-value {
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--gold-300);
+    }
+
+    .stat-good { color: var(--win); }
+    .stat-bad { color: var(--lose); }
+
+    .rank-bars {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .rank-bar-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .rank-bar-track {
+        flex: 1;
+        height: 10px;
+        border-radius: 6px;
+        background: var(--felt-900);
+        overflow: hidden;
+    }
+
+    .rank-bar-fill {
+        height: 100%;
+        border-radius: 6px;
+    }
+    .rank-bar-fill.r1 { background: var(--rank-1); }
+    .rank-bar-fill.r2 { background: var(--rank-2); }
+    .rank-bar-fill.r3 { background: var(--rank-3); }
+    .rank-bar-fill.r4 { background: var(--rank-4); }
+
+    .rank-bar-count {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        color: var(--ivory-300);
+        width: 42px;
+        text-align: right;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx = document.getElementById('profitChart');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: JSON.parse('{{ labels|escapejs }}'),
+        datasets: [{
+            label: '累積収支',
+            data: JSON.parse('{{ profits|escapejs }}'),
+            borderColor: '#d4af37',
+            backgroundColor: 'rgba(212,175,55,0.15)',
+            fill: true,
+            tension: 0.3,
+            pointRadius: 2
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { labels: { color: '#cfc6ac' } }
+        },
+        scales: {
+            x: { ticks: { color: '#cfc6ac' }, grid: { color: '#21503c' } },
+            y: { ticks: { color: '#cfc6ac' }, grid: { color: '#21503c' } }
+        }
+    }
+});
+</script>
+
+{% endblock %}

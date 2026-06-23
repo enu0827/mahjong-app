@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>{% block title %}石橋麻雀格闘倶楽部{% endblock %}</title>
+
+    <style>
+        :root {
+            /* ---- カラートークン ---- */
+            --felt-900: #07140f;      /* 卓の最深部（背景） */
+            --felt-700: #0f2a1d;      /* カード背景 */
+            --felt-600: #15392a;      /* カード背景（強調） */
+            --felt-500: #21503c;      /* 罫線・区切り */
+            --rail-line: #2c5c44;    /* 細い境界線 */
+
+            --gold-500: #d4af37;      /* メインアクセント（金） */
+            --gold-300: #e8cd6f;      /* 金・明るめ（テキスト用） */
+            --ivory-100: #f3ecd9;     /* 牌の象牙色（本文の白） */
+            --ivory-300: #cfc6ac;     /* 象牙・低彩度（補足テキスト） */
+
+            --rank-1: #e0b94a;        /* 1位：金 */
+            --rank-2: #c9ccd6;        /* 2位：銀 */
+            --rank-3: #cd8a52;        /* 3位：銅 */
+            --rank-4: #6f8c7d;        /* 4位：控えめな緑灰 */
+
+            --win: #6fd49a;           /* 収支プラス */
+            --lose: #e8765f;          /* 収支マイナス */
+
+            --radius-lg: 18px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+
+            --font-display: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+            --font-body: "Zen Kaku Gothic New", system-ui, "Hiragino Sans", "Yu Gothic", sans-serif;
+            --font-mono: "Roboto Mono", "SF Mono", Menlo, monospace;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background: var(--felt-900);
+            background-image:
+                radial-gradient(circle at 50% 0%, rgba(212,175,55,0.07), transparent 60%);
+            color: var(--ivory-100);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 16px 16px 48px;
+        }
+
+        /* ---- ヘッダー ---- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: linear-gradient(180deg, var(--felt-900) 70%, rgba(7,20,15,0.85));
+            padding: 18px 20px 14px;
+            text-align: center;
+            border-bottom: 1px solid var(--gold-500);
+        }
+
+        .header-tiles {
+            font-size: 13px;
+            letter-spacing: 0.3em;
+            color: var(--gold-500);
+            opacity: 0.8;
+            margin: 0 0 4px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-family: var(--font-display);
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: var(--gold-300);
+        }
+
+        /* ---- カード ---- */
+        .card {
+            background: linear-gradient(160deg, var(--felt-600), var(--felt-700));
+            border: 1px solid var(--rail-line);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin: 14px 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+        }
+
+        .card h2 {
+            font-family: var(--font-display);
+            font-size: 19px;
+            margin: 0 0 4px;
+            color: var(--ivory-100);
+            letter-spacing: 0.02em;
+        }
+
+        .card h3 {
+            font-family: var(--font-display);
+            font-size: 16px;
+            margin: 0 0 12px;
+            color: var(--gold-300);
+            letter-spacing: 0.02em;
+        }
+
+        .card p {
+            margin: 6px 0;
+            line-height: 1.6;
+            color: var(--ivory-300);
+        }
+
+        .card-eyebrow {
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            color: var(--ivory-300);
+            margin: 0 0 2px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--felt-500);
+            margin: 16px 0;
+        }
+
+        /* ---- リンク / ナビ行 ---- */
+        a {
+            color: var(--gold-300);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 2px;
+        }
+
+        .nav-link .arrow {
+            color: var(--ivory-300);
+            font-weight: 400;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--ivory-300);
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .back-link:hover { color: var(--gold-300); }
+
+        /* ---- ボタン / フォーム ---- */
+        button {
+            background: linear-gradient(160deg, var(--gold-300), var(--gold-500));
+            color: var(--felt-900);
+            border: none;
+            border-radius: var(--radius-md);
+            padding: 15px;
+            font-size: 17px;
+            font-weight: 700;
+            width: 100%;
+            letter-spacing: 0.04em;
+            box-shadow: 0 4px 10px rgba(212,175,55,0.25);
+        }
+
+        button:active { transform: translateY(1px); }
+
+        input, select {
+            font-family: var(--font-body);
+            font-size: 17px;
+            padding: 12px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--felt-500);
+            background: var(--felt-900);
+            color: var(--ivory-100);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus, button:focus-visible {
+            outline: 2px solid var(--gold-500);
+            outline-offset: 1px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            color: var(--ivory-300);
+            margin-bottom: 6px;
+            letter-spacing: 0.03em;
+        }
+
+        /* ---- テーブル ---- */
+        .table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: var(--radius-md);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--felt-900);
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 11px 8px;
+            border-bottom: 1px solid var(--felt-500);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        th {
+            color: var(--gold-300);
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            background: rgba(212,175,55,0.06);
+        }
+
+        td.num, th.num {
+            font-family: var(--font-mono);
+        }
+
+        tr:last-child td { border-bottom: none; }
+
+        /* ---- 順位バッジ（牌チップ風） ---- */
+        .rank-chip {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 7px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 13px;
+            /* 5位以降や未定義クラス用の既定スタイル（暗背景でも視認できる配色） */
+            background: var(--felt-500);
+            color: var(--ivory-100);
+        }
+        .rank-chip.r1 { background: var(--rank-1); color: var(--felt-900); }
+        .rank-chip.r2 { background: var(--rank-2); color: var(--felt-900); }
+        .rank-chip.r3 { background: var(--rank-3); color: var(--felt-900); }
+        .rank-chip.r4 { background: var(--rank-4); color: var(--ivory-100); }
+
+        .money-plus { color: var(--win); font-family: var(--font-mono); font-weight: 600; }
+        .money-minus { color: var(--lose); font-family: var(--font-mono); font-weight: 600; }
+        .money-zero { color: var(--ivory-300); font-family: var(--font-mono); }
+
+        @media (max-width: 380px) {
+            table { font-size: 12.5px; }
+            th, td { padding: 9px 5px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p class="header-tiles">🀇 🀈 🀉</p>
+        <h1>石橋麻雀格闘倶楽部</h1>
+    </div>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

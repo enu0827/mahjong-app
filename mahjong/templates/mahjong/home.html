@@ -1,0 +1,86 @@
+{% extends "mahjong/base.html" %}
+
+{% block content %}
+
+<div class="card" style="text-align: center;">
+    <p class="card-eyebrow">RECORD &amp; RANKING</p>
+    <h2>対局結果記録</h2>
+    <p>麻雀の点数・順位・収支を管理</p>
+</div>
+
+<div class="card">
+    <h3>🀄 本日の暫定記録</h3>
+
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>順位</th>
+                <th>名前</th>
+                <th class="num">収支</th>
+                <th class="num">金額</th>
+                <th class="num">平均着順</th>
+            </tr>
+
+            {% for player in today_results %}
+            <tr>
+                <td>
+                    <span class="rank-chip r{{ forloop.counter }}">{{ forloop.counter }}</span>
+                </td>
+                <td>{{ player.player__name }}</td>
+                <td class="num">{{ player.total_profit|floatformat:1 }}</td>
+                <td class="num">
+                    {% if player.money > 0 %}
+                        <span class="money-plus">+{{ player.money|floatformat:0 }}円</span>
+                    {% elif player.money < 0 %}
+                        <span class="money-minus">{{ player.money|floatformat:0 }}円</span>
+                    {% else %}
+                        <span class="money-zero">0円</span>
+                    {% endif %}
+                </td>
+                <td class="num">{{ player.average_rank|floatformat:2 }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">本日の記録はまだありません</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <p style="margin-top: 12px;">本日の対局数：{{ today_game_count }}戦</p>
+</div>
+
+<div class="card">
+    <a class="nav-link" href="/add/">
+        <span>🀄 対局登録</span>
+        <span class="arrow">›</span>
+    </a>
+    <hr>
+    <a class="nav-link" href="/ranking/">
+        <span>🏆 シーズンランキング</span>
+        <span class="arrow">›</span>
+    </a>
+    <hr>
+    <a class="nav-link" href="/games/">
+        <span>📜 対局一覧</span>
+        <span class="arrow">›</span>
+    </a>
+    <hr>
+    <a class="nav-link" href="/daily/">
+        <span>📅 過去結果</span>
+        <span class="arrow">›</span>
+    </a>
+</div>
+
+<div class="card">
+    <h3>👤 個人成績</h3>
+
+    {% for player in players %}
+        <a class="nav-link" href="/player/{{ player.id }}/">
+            <span>{{ player.name }}</span>
+            <span class="arrow">›</span>
+        </a>
+        {% if not forloop.last %}<hr>{% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

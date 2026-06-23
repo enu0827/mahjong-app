@@ -1,0 +1,69 @@
+{% extends "mahjong/base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <p class="card-eyebrow">DAILY SUMMARY</p>
+    <h2>過去結果</h2>
+
+    <form method="get" class="date-form">
+        <input type="date" name="date" value="{{ date }}">
+        <button type="submit">表示</button>
+    </form>
+</div>
+
+{% if date %}
+<div class="card">
+    <h3>{{ date }} の成績</h3>
+
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>名前</th>
+                <th class="num">収支</th>
+                <th class="num">金額</th>
+                <th class="num">対局数</th>
+                <th class="num">平均着順</th>
+            </tr>
+
+            {% for player in summary %}
+            <tr>
+                <td>{{ player.player__name }}</td>
+                <td class="num">{{ player.total_profit|floatformat:1 }}</td>
+                <td class="num">
+                    {% if player.money > 0 %}
+                    <span class="money-plus">+{{ player.money|floatformat:0 }}円</span>
+                    {% else %}
+                    <span class="money-minus">{{ player.money|floatformat:0 }}円</span>
+                    {% endif %}
+                </td>
+                <td class="num">{{ player.game_count }}</td>
+                <td class="num">{{ player.average_rank|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endif %}
+
+<div class="card">
+    <a class="back-link" href="/">← トップへ戻る</a>
+</div>
+
+<style>
+    .date-form {
+        display: flex;
+        gap: 10px;
+        align-items: stretch;
+    }
+    .date-form input {
+        flex: 1;
+    }
+    .date-form button {
+        width: auto;
+        padding: 12px 20px;
+        flex-shrink: 0;
+    }
+</style>
+
+{% endblock %}

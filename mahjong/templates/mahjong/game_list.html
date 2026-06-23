@@ -1,0 +1,44 @@
+{% extends "mahjong/base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <p class="card-eyebrow">GAME LOG</p>
+    <h2>対局一覧</h2>
+    <a class="nav-link" href="/add/">
+        <span>＋ 新しい対局を登録</span>
+        <span class="arrow">›</span>
+    </a>
+</div>
+
+{% for game in games %}
+<div class="card">
+    <h3>{{ game.date }}　第{{ game.game_number }}戦</h3>
+
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>順位</th>
+                <th>名前</th>
+                <th class="num">素点</th>
+                <th class="num">収支</th>
+            </tr>
+
+            {% for result in game.result_set.all %}
+            <tr>
+                <td><span class="rank-chip r{{ result.rank }}">{{ result.rank }}</span></td>
+                <td>{{ result.player.name }}</td>
+                <td class="num">{{ result.score }}点</td>
+                <td class="num">{{ result.profit|floatformat:1 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endfor %}
+
+<div class="card">
+    <a class="back-link" href="/">← トップへ戻る</a>
+</div>
+
+{% endblock %}

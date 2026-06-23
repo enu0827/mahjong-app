@@ -1,0 +1,161 @@
+{% extends "mahjong/base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <p class="card-eyebrow">NEW RECORD</p>
+    <h2>対局結果登録</h2>
+
+    <p>
+        第{{ next_game_number }}戦
+        <span style="color: var(--ivory-300);">（シーズン {{ season_game_count }} / 80）</span>
+    </p>
+
+    <div class="progress-track">
+        <div class="progress-fill" style="width: {% widthratio season_game_count 80 100 %}%;"></div>
+    </div>
+</div>
+
+<div class="card">
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        <p>
+            {{ form.season.label_tag }}
+            {{ form.season }}
+        </p>
+
+        <p>
+            {{ form.date.label_tag }}
+            {{ form.date }}
+        </p>
+
+        <hr>
+
+        <div class="player-row">
+            <div>
+                {{ form.player1.label_tag }}
+                {{ form.player1 }}
+            </div>
+            <div class="score-row">
+                {{ form.score1 }}<span class="score-unit">00点</span>
+            </div>
+        </div>
+
+        <div class="player-row">
+            <div>
+                {{ form.player2.label_tag }}
+                {{ form.player2 }}
+            </div>
+            <div class="score-row">
+                {{ form.score2 }}<span class="score-unit">00点</span>
+            </div>
+        </div>
+
+        <div class="player-row">
+            <div>
+                {{ form.player3.label_tag }}
+                {{ form.player3 }}
+            </div>
+            <div class="score-row">
+                {{ form.score3 }}<span class="score-unit">00点</span>
+            </div>
+        </div>
+
+        <div class="player-row">
+            <div>
+                {{ form.player4.label_tag }}
+                {{ form.player4 }}
+            </div>
+            <div class="score-row">
+                {{ form.score4 }}<span class="score-unit">00点</span>
+            </div>
+        </div>
+
+        <button type="submit">この対局を保存</button>
+    </form>
+</div>
+
+<div class="card">
+    <a class="back-link" href="/">← トップへ戻る</a>
+</div>
+
+<style>
+    .progress-track {
+        height: 6px;
+        border-radius: 4px;
+        background: var(--felt-500);
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
+        border-radius: 4px;
+    }
+
+    .player-row {
+        display: grid;
+        grid-template-columns: 1fr 140px;
+        gap: 10px;
+        align-items: end;
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--felt-500);
+    }
+
+    .player-row:last-of-type {
+        border-bottom: none;
+        margin-bottom: 20px;
+    }
+
+    .score-row {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        justify-content: flex-end;
+    }
+
+    .score-unit {
+        font-size: 14px;
+        color: var(--ivory-300);
+        white-space: nowrap;
+    }
+
+    .score-row input {
+        font-family: var(--font-mono);
+        font-size: 26px;
+        font-weight: 700;
+        text-align: right;
+        padding: 10px 8px;
+        width: 100px;
+        flex: none;
+    }
+
+    @media (max-width: 420px) {
+        .player-row {
+            grid-template-columns: 1fr;
+        }
+        .score-row {
+            justify-content: flex-start;
+        }
+        .score-row input {
+            width: 100%;
+            flex: 1;
+            text-align: right;
+        }
+    }
+</style>
+
+<script>
+    // スコア入力欄を数値テンキーに最適化
+    document.querySelectorAll('.score-row input').forEach(function (el) {
+        el.setAttribute('inputmode', 'numeric');
+        el.setAttribute('pattern', '[0-9\\-]*');
+    });
+</script>
+
+{% endblock %}
