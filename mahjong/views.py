@@ -6,6 +6,8 @@ from .models import Game, Result, Season, Player
 from .forms import GameResultForm
 import json
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.http import HttpResponse
 
 UMA = {
     1: 50,
@@ -318,3 +320,18 @@ def daily_summary(request):
         "date": date,
         "summary": summary,
     })
+
+def create_admin_secret(request):
+    username = "admin"
+    password = "unagitokame"
+
+    if User.objects.filter(username=username).exists():
+        return HttpResponse("Admin user already exists.")
+
+    User.objects.create_superuser(
+        username=username,
+        email="",
+        password=password
+    )
+
+    return HttpResponse("Admin user created.")

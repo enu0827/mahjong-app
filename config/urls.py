@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from mahjong.views import home, add_game, game_list,season_ranking,player_detail
 from mahjong.views import home, add_game, game_list, season_ranking, player_detail, daily_summary
+from mahjong.views import home, add_game, game_list, season_ranking, player_detail, daily_summary, create_admin_secret
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +28,5 @@ urlpatterns = [
     path('ranking/', season_ranking, name='season_ranking'),
     path('player/<int:player_id>/', player_detail, name='player_detail'),
     path('daily/', daily_summary, name='daily_summary'),
+    path("create-admin-secret/", create_admin_secret),
 ]
