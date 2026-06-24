@@ -1,0 +1,99 @@
+{% extends "mahjong/base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h2>対局編集</h2>
+    <p>第{{ game.game_number }}戦</p>
+</div>
+
+
+
+<div class="card">
+    <form method="post">
+        {% csrf_token %}
+        
+
+        {% if error %}
+        <div style="background:#5a1f1f; color:#ffcccc; padding:12px; border-radius:10px; margin-bottom:15px;">
+            {{ error }}
+        </div>
+        {% endif %}
+
+
+        <p>
+            日付
+            <input
+                type="date"
+                name="date"
+                value="{{ game.date|date:'Y-m-d' }}"
+            >
+        </p>
+
+        {% for result in results %}
+        <div class="player-row">
+            <div>
+                <select name="player_{{ result.id }}">
+                    {% for player in players %}
+                    <option
+                        value="{{ player.id }}"
+                        {% if player.id == result.player.id %}selected{% endif %}
+                    >
+                        {{ player.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="score-row">
+                <input
+                    type="number"
+                    name="score_{{ result.id }}"
+                    value="{{ result.score|stringformat:'d'|slice:':-2' }}"
+                    required
+                >
+                <span>00点</span>
+            </div>
+        </div>
+        {% endfor %}
+
+        <button type="submit">保存</button>
+    </form>
+</div>
+
+<div class="card">
+    <a href="/games/">対局一覧へ戻る</a>
+</div>
+
+<style>
+    .player-row {
+        display: grid;
+        grid-template-columns: 1fr 150px;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 16px;
+    }
+
+    .score-row {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .score-row input {
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+    }
+
+    @media (max-width: 480px) {
+        .player-row {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+{% endblock %}

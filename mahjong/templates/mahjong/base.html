@@ -189,6 +189,24 @@
             outline-offset: 1px;
         }
 
+        /* ---- 日付入力（カレンダーアイコンを暗背景でも確実に見せる） ---- */
+        input[type="date"] {
+            color-scheme: light;
+            position: relative;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            background-color: var(--gold-500);
+            border-radius: 6px;
+            padding: 5px;
+            cursor: pointer;
+            opacity: 1;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator:hover {
+            background-color: var(--gold-300);
+        }
+
         label {
             display: block;
             font-size: 13px;
