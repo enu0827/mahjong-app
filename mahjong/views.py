@@ -220,6 +220,7 @@ def season_ranking(request):
 
         player["top_rate"] = top_count / game_count * 100
         player["last_rate"] = last_count / game_count * 100
+        player["avoid_last_rate"] = 100 - player["last_rate"]
 
         ranking_list.append(player)
 
@@ -288,30 +289,37 @@ def player_detail(request, player_id):
 
     results = Result.objects.filter(player=player).order_by("game__game_number")
 
+    history_results = list(results)
+
     cumulative = 0
     labels = []
     profits = []
 
-    for i, result in enumerate(results, start=1):
+    for result in history_results:
         cumulative += result.profit
+        result.cumulative_profit = cumulative
+
         labels.append(f"第{result.game.game_number}戦")
         profits.append(cumulative)
 
-    game_count = results.count()
-    total_profit = sum(r.profit for r in results)
+    game_count = len(history_results)
+    total_profit = sum(r.profit for r in history_results)
 
     average_rank = (
-        sum(r.rank for r in results) / game_count
+        sum(r.rank for r in history_results) / game_count
         if game_count else 0
     )
 
-    first_count = results.filter(rank=1).count()
-    second_count = results.filter(rank=2).count()
-    third_count = results.filter(rank=3).count()
-    fourth_count = results.filter(rank=4).count()
+    first_count = sum(1 for r in history_results if r.rank == 1)
+    second_count = sum(1 for r in history_results if r.rank == 2)
+    third_count = sum(1 for r in history_results if r.rank == 3)
+    fourth_count = sum(1 for r in history_results if r.rank == 4)
 
     top_rate = first_count / game_count * 100 if game_count else 0
     last_rate = fourth_count / game_count * 100 if game_count else 0
+    avoid_last_rate = 100 - last_rate if game_count else 0
+
+    history_results.reverse()
 
     return render(
         request,
@@ -323,13 +331,14 @@ def player_detail(request, player_id):
             "average_rank": average_rank,
             "top_rate": top_rate,
             "last_rate": last_rate,
+            "avoid_last_rate": avoid_last_rate,
             "first_count": first_count,
             "second_count": second_count,
             "third_count": third_count,
             "fourth_count": fourth_count,
             "labels": json.dumps(labels, ensure_ascii=False),
             "profits": json.dumps(profits),
-            "results": results.order_by("-game__game_number"),
+            "results": history_results,
         },
     )
 

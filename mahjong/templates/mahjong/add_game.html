@@ -40,6 +40,7 @@
                 {{ form.player1 }}
             </div>
             <div class="score-row">
+                <button type="button" class="minus-toggle">±</button>
                 {{ form.score1 }}<span class="score-unit">00点</span>
             </div>
         </div>
@@ -50,6 +51,7 @@
                 {{ form.player2 }}
             </div>
             <div class="score-row">
+                <button type="button" class="minus-toggle">±</button>
                 {{ form.score2 }}<span class="score-unit">00点</span>
             </div>
         </div>
@@ -60,6 +62,7 @@
                 {{ form.player3 }}
             </div>
             <div class="score-row">
+                <button type="button" class="minus-toggle">±</button>
                 {{ form.score3 }}<span class="score-unit">00点</span>
             </div>
         </div>
@@ -70,6 +73,7 @@
                 {{ form.player4 }}
             </div>
             <div class="score-row">
+                <button type="button" class="minus-toggle">±</button>
                 {{ form.score4 }}<span class="score-unit">00点</span>
             </div>
         </div>
@@ -99,7 +103,7 @@
 
     .player-row {
         display: grid;
-        grid-template-columns: 1fr 140px;
+        grid-template-columns: 1fr 185px;
         gap: 10px;
         align-items: end;
         margin-bottom: 16px;
@@ -115,8 +119,21 @@
     .score-row {
         display: flex;
         align-items: center;
-        gap: 4px;
+        gap: 6px;
         justify-content: flex-end;
+    }
+
+    .minus-toggle {
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        border-radius: 10px;
+        border: 1px solid var(--gold-500);
+        background: rgba(212,175,55,0.12);
+        color: var(--gold-300);
+        font-size: 20px;
+        font-weight: 700;
+        flex: none;
     }
 
     .score-unit {
@@ -131,7 +148,7 @@
         font-weight: 700;
         text-align: right;
         padding: 10px 8px;
-        width: 100px;
+        width: 92px;
         flex: none;
     }
 
@@ -139,9 +156,11 @@
         .player-row {
             grid-template-columns: 1fr;
         }
+
         .score-row {
             justify-content: flex-start;
         }
+
         .score-row input {
             width: 100%;
             flex: 1;
@@ -151,10 +170,27 @@
 </style>
 
 <script>
-    // スコア入力欄を数値テンキーに最適化
     document.querySelectorAll('.score-row input').forEach(function (el) {
+        el.setAttribute('type', 'text');
         el.setAttribute('inputmode', 'numeric');
-        el.setAttribute('pattern', '[0-9\\-]*');
+        el.setAttribute('pattern', '-?[0-9]*');
+    });
+
+    document.querySelectorAll('.minus-toggle').forEach(function (button) {
+        button.addEventListener('click', function () {
+            const input = button.parentElement.querySelector('input');
+            let value = input.value.trim();
+
+            if (value.startsWith('-')) {
+                input.value = value.slice(1);
+            } else if (value.length > 0) {
+                input.value = '-' + value;
+            } else {
+                input.value = '-';
+            }
+
+            input.focus();
+        });
     });
 </script>
 

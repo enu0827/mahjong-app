@@ -38,7 +38,7 @@
             <div class="award-body">
                 <p class="award-title">ラス回避賞 <span class="award-prize">2,000円</span></p>
                 {% if avoid_last_winner %}
-                <p class="award-winner">{{ avoid_last_winner.player__name }} <span class="award-detail">ラス率 {{ avoid_last_winner.last_rate|floatformat:1 }}%</span></p>
+                <p class="award-winner">{{ avoid_last_winner.player__name }} <span class="award-detail">ラス回避率 {{ avoid_last_winner.avoid_last_rate|floatformat:1 }}%</span></p>
                 {% else %}
                 <p class="award-winner award-pending">未確定</p>
                 {% endif %}
@@ -86,7 +86,7 @@
             <th class="num">対局数</th>
             <th class="num">平均着順</th>
             <th class="num">トップ率</th>
-            <th class="num">ラス率</th>
+            <th class="num">ラス回避率</th>
         </tr>
 
         {% for player in rankings %}
@@ -101,7 +101,7 @@
             <td class="num">{{ player.game_count }}</td>
             <td class="num">{{ player.average_rank|floatformat:2 }}</td>
             <td class="num">{{ player.top_rate|floatformat:1 }}%</td>
-            <td class="num">{{ player.last_rate|floatformat:1 }}%</td>
+            <td class="num">{{ player.avoid_last_rate|floatformat:1 }}%</td>
         </tr>
         {% endfor %}
     </table>

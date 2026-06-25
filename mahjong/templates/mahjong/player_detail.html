@@ -32,33 +32,45 @@
             <p class="stat-value stat-good">{{ top_rate|floatformat:1 }}%</p>
         </div>
         <div class="stat-box">
-            <p class="stat-label">ラス率</p>
-            <p class="stat-value stat-bad">{{ last_rate|floatformat:1 }}%</p>
+            <p class="stat-label">ラス回避率</p>
+            <p class="stat-value stat-good">{{ avoid_last_rate|floatformat:1 }}%</p>
         </div>
     </div>
 </div>
 
 <div class="card">
     <h3>着順分布</h3>
+
     <div class="rank-bars">
         <div class="rank-bar-row">
             <span class="rank-chip r1">1</span>
-            <div class="rank-bar-track"><div class="rank-bar-fill r1" style="width: {% widthratio first_count game_count 100 %}%;"></div></div>
+            <div class="rank-bar-track">
+                <div class="rank-bar-fill r1" style="width: {% widthratio first_count game_count 100 %}%;"></div>
+            </div>
             <span class="rank-bar-count">{{ first_count }}回</span>
         </div>
+
         <div class="rank-bar-row">
             <span class="rank-chip r2">2</span>
-            <div class="rank-bar-track"><div class="rank-bar-fill r2" style="width: {% widthratio second_count game_count 100 %}%;"></div></div>
+            <div class="rank-bar-track">
+                <div class="rank-bar-fill r2" style="width: {% widthratio second_count game_count 100 %}%;"></div>
+            </div>
             <span class="rank-bar-count">{{ second_count }}回</span>
         </div>
+
         <div class="rank-bar-row">
             <span class="rank-chip r3">3</span>
-            <div class="rank-bar-track"><div class="rank-bar-fill r3" style="width: {% widthratio third_count game_count 100 %}%;"></div></div>
+            <div class="rank-bar-track">
+                <div class="rank-bar-fill r3" style="width: {% widthratio third_count game_count 100 %}%;"></div>
+            </div>
             <span class="rank-bar-count">{{ third_count }}回</span>
         </div>
+
         <div class="rank-bar-row">
             <span class="rank-chip r4">4</span>
-            <div class="rank-bar-track"><div class="rank-bar-fill r4" style="width: {% widthratio fourth_count game_count 100 %}%;"></div></div>
+            <div class="rank-bar-track">
+                <div class="rank-bar-fill r4" style="width: {% widthratio fourth_count game_count 100 %}%;"></div>
+            </div>
             <span class="rank-bar-count">{{ fourth_count }}回</span>
         </div>
     </div>
@@ -80,6 +92,7 @@
                 <th>着順</th>
                 <th class="num">点数</th>
                 <th class="num">収支</th>
+                <th class="num">累計収支</th>
             </tr>
 
             {% for result in results %}
@@ -89,6 +102,7 @@
                 <td><span class="rank-chip r{{ result.rank }}">{{ result.rank }}</span></td>
                 <td class="num">{{ result.score }}点</td>
                 <td class="num">{{ result.profit|floatformat:1 }}</td>
+                <td class="num"> {{ result.cumulative_profit|floatformat:1 }}</td>
             </tr>
             {% endfor %}
         </table>
@@ -134,8 +148,13 @@
         color: var(--gold-300);
     }
 
-    .stat-good { color: var(--win); }
-    .stat-bad { color: var(--lose); }
+    .stat-good {
+        color: var(--win);
+    }
+
+    .stat-bad {
+        color: var(--lose);
+    }
 
     .rank-bars {
         display: flex;
@@ -161,6 +180,7 @@
         height: 100%;
         border-radius: 6px;
     }
+
     .rank-bar-fill.r1 { background: var(--rank-1); }
     .rank-bar-fill.r2 { background: var(--rank-2); }
     .rank-bar-fill.r3 { background: var(--rank-3); }
