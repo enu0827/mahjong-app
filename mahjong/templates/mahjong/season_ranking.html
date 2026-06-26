@@ -69,48 +69,47 @@
         {% endif %}
     </div>
     <div class="progress-track">
-        <div
-           class="progress-fill"
-           style="width: {% widthratio season_game_count 80 100 %}%;">
-        </div>
+        <div class="progress-fill" style="width: {% widthratio season_game_count 80 100 %}%;"></div>
     </div>
 </div>
 
 <div class="card">
-  <div class="table-wrap">
-    <table>
-        <tr>
-            <th>順位</th>
-            <th>名前</th>
-            <th class="num">収支</th>
-            <th class="num">対局数</th>
-            <th class="num">平均着順</th>
-            <th class="num">トップ率</th>
-            <th class="num">ラス回避率</th>
-        </tr>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>順位</th>
+                <th>名前</th>
+                <th class="num">収支</th>
+                <th class="num">対局数</th>
+                <th class="num">平均着順</th>
+                <th class="num">トップ率</th>
+                <th class="num">ラス回避率</th>
+            </tr>
 
-        {% for player in rankings %}
-        <tr>
-            <td><span class="rank-chip r{{ forloop.counter }}">{{ forloop.counter }}</span></td>
-            <td>
-                <a href="/player/{{ player.player__id }}/">
-                    {{ player.player__name }}
-                </a>
-            </td>
-            <td class="num">{{ player.total_profit|floatformat:1 }}</td>
-            <td class="num">{{ player.game_count }}</td>
-            <td class="num">{{ player.average_rank|floatformat:2 }}</td>
-            <td class="num">{{ player.top_rate|floatformat:1 }}%</td>
-            <td class="num">{{ player.avoid_last_rate|floatformat:1 }}%</td>
-        </tr>
-        {% endfor %}
-    </table>
-   </div>
+            {% for player in rankings %}
+            <tr>
+                <td><span class="rank-chip r{{ forloop.counter }}">{{ forloop.counter }}</span></td>
+                <td>
+                    <a href="/player/{{ player.player__id }}/">
+                        {{ player.player__name }}
+                    </a>
+                </td>
+                <td class="num">{{ player.total_profit|floatformat:1 }}</td>
+                <td class="num">{{ player.game_count }}</td>
+                <td class="num">{{ player.average_rank|floatformat:2 }}</td>
+                <td class="num">{{ player.top_rate|floatformat:1 }}%</td>
+                <td class="num">{{ player.avoid_last_rate|floatformat:1 }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
 
 <div class="card">
     <h3>📈 累積収支推移</h3>
-    <canvas id="seasonChart"></canvas>
+    <div class="chart-wrap">
+        <canvas id="seasonChart"></canvas>
+    </div>
 </div>
 
 <div class="card">
@@ -140,7 +139,10 @@
         margin-top: 2px;
     }
 
-    .award-body { flex: 1; min-width: 0; }
+    .award-body {
+        flex: 1;
+        min-width: 0;
+    }
 
     .award-title {
         margin: 0;
@@ -198,6 +200,18 @@
         background: linear-gradient(90deg, var(--gold-500), var(--gold-300));
         border-radius: 4px;
     }
+
+    .chart-wrap {
+        position: relative;
+        height: 420px;
+        margin-top: 12px;
+    }
+
+    @media (max-width: 600px) {
+        .chart-wrap {
+            height: 360px;
+        }
+    }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -223,10 +237,12 @@ const datasets = graphData.map(player => ({
     })),
     borderColor: colors[player.name] || "#888888",
     backgroundColor: colors[player.name] || "#888888",
-    borderWidth: 3,
-    pointRadius: 2,
+    borderWidth: 2,
+    pointRadius: 0,
     pointHoverRadius: 6,
-    tension: 0.2,
+    pointHitRadius: 12,
+    tension: 0.25,
+    spanGaps: true,
     parsing: false
 }));
 
@@ -239,12 +255,40 @@ new Chart(
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
+
+            interaction: {
+                mode: "nearest",
+                intersect: false
+            },
+
             plugins: {
                 legend: {
-                    position: "top",
-                    labels: { color: "#cfc6ac" }
+                    position: "bottom",
+                    labels: {
+                        color: "#cfc6ac",
+                        usePointStyle: true,
+                        boxWidth: 10,
+                        padding: 14
+                    }
+                },
+                tooltip: {
+                    backgroundColor: "rgba(10, 31, 24, 0.95)",
+                    titleColor: "#f7e7b0",
+                    bodyColor: "#f5f0df",
+                    borderColor: "#d4af37",
+                    borderWidth: 1,
+                    callbacks: {
+                        title: function(context) {
+                            return context[0].parsed.x + "戦目";
+                        },
+                        label: function(context) {
+                            return context.dataset.label + ": " + context.parsed.y.toFixed(1);
+                        }
+                    }
                 }
             },
+
             scales: {
                 x: {
                     type: "linear",
@@ -259,16 +303,23 @@ new Chart(
                         stepSize: 10,
                         color: "#cfc6ac"
                     },
-                    grid: { color: "#21503c" }
+                    grid: {
+                        color: "rgba(207,198,172,0.12)"
+                    }
                 },
+
                 y: {
                     title: {
                         display: true,
                         text: "累積収支",
                         color: "#cfc6ac"
                     },
-                    ticks: { color: "#cfc6ac" },
-                    grid: { color: "#21503c" }
+                    ticks: {
+                        color: "#cfc6ac"
+                    },
+                    grid: {
+                        color: "rgba(207,198,172,0.12)"
+                    }
                 }
             }
         }

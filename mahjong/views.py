@@ -14,7 +14,7 @@ UMA = {
     4: -30,
 }
 
-#@login_required
+@login_required
 def home(request):
     today = dt_date.today()
 
@@ -44,7 +44,7 @@ def home(request):
         "players": Player.objects.all(),
     })
 
-#@login_required
+@login_required
 def add_game(request):
     next_game_number = 1
 
@@ -165,7 +165,7 @@ def add_game(request):
         "next_game_number": next_game_number,
     })
 
-#@login_required
+@login_required
 def game_list(request):
     games = Game.objects.order_by("-date", "-game_number")
 
@@ -175,7 +175,7 @@ def game_list(request):
         {"games": games}
     )
 
-#@login_required
+@login_required
 def season_ranking(request):
     season_id = request.GET.get("season")
 
@@ -283,7 +283,7 @@ def season_ranking(request):
     })
 
 
-#@login_required
+@login_required
 def player_detail(request, player_id):
     player = get_object_or_404(Player, id=player_id)
 
@@ -342,7 +342,7 @@ def player_detail(request, player_id):
         },
     )
 
-#@login_required
+@login_required
 def daily_summary(request):
     date = request.GET.get("date")
 
@@ -371,6 +371,7 @@ def daily_summary(request):
         "summary": summary,
     })
 
+@login_required
 def edit_game(request, game_id):
     game = get_object_or_404(Game, id=game_id)
     results = Result.objects.filter(game=game).order_by("rank")
