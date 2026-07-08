@@ -150,15 +150,12 @@ def add_game(request):
                 form.fields["season"].initial = last_season
                 next_game_number = last_season_game_count + 1
 
-            form.fields["date"].initial = last_game.date
-
             results = Result.objects.filter(game=last_game).order_by("rank")
 
             for i, result in enumerate(results, start=1):
                 form.fields[f"player{i}"].initial = result.player
 
-        else:
-            form.fields["date"].initial = dt_date.today()
+        form.fields["date"].initial = dt_date.today()
 
     return render(request, "mahjong/add_game.html", {
         "form": form,

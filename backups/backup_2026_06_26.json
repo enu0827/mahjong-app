@@ -1,0 +1,2998 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-06-23T04:24:47.930Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "えい",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-06-23T04:24:55.671Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "とも",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-06-23T04:25:04.869Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "かも",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-06-23T04:25:07.118Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "KK",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-06-23T04:25:12.813Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "まさ",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-06-23T04:25:15.021Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "さけ",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-06-23T04:25:17.918Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "ちゅ",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-06-23T04:27:57.020Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "第９節",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-06-23T04:28:54.158Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "第９節 2026-08-01 第1回",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-06-23T04:29:20.433Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "第９節 2026-08-01 第1回 えい 1位 25000",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-06-23T08:00:27.979Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "第９節",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-06-23T08:01:53.890Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "第８節",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-06-23T08:02:19.571Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "第８節",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-06-23T09:04:06.627Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "ちゅうき",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-06-23T09:04:11.650Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "さたけ",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-06-23T09:04:15.547Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "まさき",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-06-23T09:04:20.578Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "ともや",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-06-23T09:04:24.328Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "えいせい",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-06-23T09:06:18.720Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "第８節 2026-05-30 第1回",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-06-23T09:10:36.243Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "8",
+    "object_repr": "第８節 2026-05-30 第2回",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-06-23T09:59:59.476Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "19",
+    "object_repr": "第８節 2026-05-30 第12回",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-06-24T01:21:31.269Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "50",
+    "object_repr": "第８節 2026-06-10 第42回",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-06-24T15:39:45.385Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "59",
+    "object_repr": "第８節 2026-06-26 第50回",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$n5Meoi0B6AQdnCZrNYWXJY$gLzHbbqPCvTn2XuQahsq5Nx6lEVoCEOGSCGd4UFQDU0=",
+    "last_login": "2026-06-24T15:39:30.783Z",
+    "is_superuser": true,
+    "username": "tomo",
+    "first_name": "",
+    "last_name": "",
+    "email": "tomoya8270@icloud.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-06-23T04:22:09.973Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8111jjzyoulerqg6rv6t767qvgtxu0vh",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSHAwFBcuvcbCMNDqgaS0q6M_65NutDtPefcF_NhW6vfRl78nNiZSXb63SjER247SPfQbp3H3tZlJr4r_KCDX3vKz8vh_h3UMOq3LhMV4YrBFKUC4RyoJNCgsKStFkTOpQkRJETjpMlQctGgDEiLQmXF3h_B-DaL:1wc08E:M5NpBRLdgwCXZGea7ct8vckmlcvo63to5YWERmQ0YPs",
+    "expire_date": "2026-07-07T12:21:34.450Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "emhlcegn6f20ar777ds1l44o5llcel41",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSHAwFBcuvcbCMNDqgaS0q6M_65NutDtPefcF_NhW6vfRl78nNiZSXb63SjER247SPfQbp3H3tZlJr4r_KCDX3vKz8vh_h3UMOq3LhMV4YrBFKUC4RyoJNCgsKStFkTOpQkRJETjpMlQctGgDEiLQmXF3h_B-DaL:1wcPhK:pna4qL5gg35IN_8ChZuDzTQRhoQcjGBUE1_0szd95KM",
+    "expire_date": "2026-07-08T15:39:30.784Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "y1n0sbb5vzvy1ojkz6j1yys7h89bqbke",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSHAwFBcuvcbCMNDqgaS0q6M_65NutDtPefcF_NhW6vfRl78nNiZSXb63SjER247SPfQbp3H3tZlJr4r_KCDX3vKz8vh_h3UMOq3LhMV4YrBFKUC4RyoJNCgsKStFkTOpQkRJETjpMlQctGgDEiLQmXF3h_B-DaL:1wc1o8:-phLZsEn5fYKDfxYN7PK3r4qKOnBGEt5OQOQintnMVs",
+    "expire_date": "2026-07-07T14:08:56.140Z"
+  }
+},
+{
+  "model": "mahjong.player",
+  "pk": 1,
+  "fields": {
+    "name": "えいせい"
+  }
+},
+{
+  "model": "mahjong.player",
+  "pk": 2,
+  "fields": {
+    "name": "ともや"
+  }
+},
+{
+  "model": "mahjong.player",
+  "pk": 3,
+  "fields": {
+    "name": "かも"
+  }
+},
+{
+  "model": "mahjong.player",
+  "pk": 4,
+  "fields": {
+    "name": "KK"
+  }
+},
+{
+  "model": "mahjong.player",
+  "pk": 5,
+  "fields": {
+    "name": "まさき"
+  }
+},
+{
+  "model": "mahjong.player",
+  "pk": 6,
+  "fields": {
+    "name": "さたけ"
+  }
+},
+{
+  "model": "mahjong.player",
+  "pk": 7,
+  "fields": {
+    "name": "ちゅうき"
+  }
+},
+{
+  "model": "mahjong.season",
+  "pk": 2,
+  "fields": {
+    "name": "第８節",
+    "start_date": "2026-05-30",
+    "end_date": "2026-07-31"
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 7,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 1
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 9,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 2
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 10,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 3
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 11,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 4
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 12,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 5
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 13,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 6
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 14,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 7
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 15,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 8
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 16,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 9
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 17,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 10
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 18,
+  "fields": {
+    "season": 2,
+    "date": "2026-05-30",
+    "game_number": 11
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 20,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-01",
+    "game_number": 12
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 21,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-01",
+    "game_number": 13
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 22,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-01",
+    "game_number": 14
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 23,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-01",
+    "game_number": 15
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 24,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-01",
+    "game_number": 16
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 25,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-01",
+    "game_number": 17
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 26,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-03",
+    "game_number": 18
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 27,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-03",
+    "game_number": 19
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 28,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-03",
+    "game_number": 20
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 29,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-07",
+    "game_number": 21
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 30,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-07",
+    "game_number": 22
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 31,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-07",
+    "game_number": 23
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 32,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-15",
+    "game_number": 24
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 33,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-15",
+    "game_number": 25
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 34,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-15",
+    "game_number": 26
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 35,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-15",
+    "game_number": 27
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 36,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-15",
+    "game_number": 28
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 37,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-15",
+    "game_number": 29
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 38,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-15",
+    "game_number": 30
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 39,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-16",
+    "game_number": 31
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 40,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-16",
+    "game_number": 32
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 41,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-16",
+    "game_number": 33
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 42,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-16",
+    "game_number": 34
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 43,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-22",
+    "game_number": 35
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 44,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-22",
+    "game_number": 36
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 45,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-22",
+    "game_number": 37
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 46,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-22",
+    "game_number": 38
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 47,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-22",
+    "game_number": 39
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 48,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-22",
+    "game_number": 40
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 49,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-22",
+    "game_number": 41
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 51,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-24",
+    "game_number": 42
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 52,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-24",
+    "game_number": 43
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 53,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-24",
+    "game_number": 44
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 54,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-24",
+    "game_number": 45
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 55,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-24",
+    "game_number": 46
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 56,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-24",
+    "game_number": 47
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 57,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-24",
+    "game_number": 48
+  }
+},
+{
+  "model": "mahjong.game",
+  "pk": 58,
+  "fields": {
+    "season": 2,
+    "date": "2026-06-24",
+    "game_number": 49
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 22,
+  "fields": {
+    "game": 7,
+    "player": 1,
+    "rank": 1,
+    "score": 37700,
+    "profit": 57.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 23,
+  "fields": {
+    "game": 7,
+    "player": 5,
+    "rank": 2,
+    "score": 30600,
+    "profit": 10.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 24,
+  "fields": {
+    "game": 7,
+    "player": 3,
+    "rank": 3,
+    "score": 18600,
+    "profit": -21.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 25,
+  "fields": {
+    "game": 7,
+    "player": 6,
+    "rank": 4,
+    "score": 13100,
+    "profit": -46.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 30,
+  "fields": {
+    "game": 9,
+    "player": 3,
+    "rank": 1,
+    "score": 49600,
+    "profit": 69.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 31,
+  "fields": {
+    "game": 9,
+    "player": 6,
+    "rank": 2,
+    "score": 39900,
+    "profit": 19.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 32,
+  "fields": {
+    "game": 9,
+    "player": 5,
+    "rank": 3,
+    "score": 29100,
+    "profit": -10.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 33,
+  "fields": {
+    "game": 9,
+    "player": 1,
+    "rank": 4,
+    "score": -18600,
+    "profit": -78.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 34,
+  "fields": {
+    "game": 10,
+    "player": 3,
+    "rank": 1,
+    "score": 42800,
+    "profit": 62.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 35,
+  "fields": {
+    "game": 10,
+    "player": 5,
+    "rank": 2,
+    "score": 31500,
+    "profit": 11.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 36,
+  "fields": {
+    "game": 10,
+    "player": 6,
+    "rank": 3,
+    "score": 25400,
+    "profit": -14.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 37,
+  "fields": {
+    "game": 10,
+    "player": 1,
+    "rank": 4,
+    "score": 300,
+    "profit": -59.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 38,
+  "fields": {
+    "game": 11,
+    "player": 3,
+    "rank": 1,
+    "score": 38000,
+    "profit": 58.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 39,
+  "fields": {
+    "game": 11,
+    "player": 1,
+    "rank": 2,
+    "score": 34100,
+    "profit": 14.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 40,
+  "fields": {
+    "game": 11,
+    "player": 5,
+    "rank": 3,
+    "score": 21300,
+    "profit": -18.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 41,
+  "fields": {
+    "game": 11,
+    "player": 6,
+    "rank": 4,
+    "score": 6600,
+    "profit": -53.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 42,
+  "fields": {
+    "game": 12,
+    "player": 3,
+    "rank": 1,
+    "score": 33000,
+    "profit": 53.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 43,
+  "fields": {
+    "game": 12,
+    "player": 5,
+    "rank": 2,
+    "score": 25600,
+    "profit": 5.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 44,
+  "fields": {
+    "game": 12,
+    "player": 6,
+    "rank": 3,
+    "score": 21700,
+    "profit": -18.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 45,
+  "fields": {
+    "game": 12,
+    "player": 1,
+    "rank": 4,
+    "score": 19700,
+    "profit": -40.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 46,
+  "fields": {
+    "game": 13,
+    "player": 3,
+    "rank": 1,
+    "score": 33400,
+    "profit": 53.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 47,
+  "fields": {
+    "game": 13,
+    "player": 5,
+    "rank": 2,
+    "score": 28100,
+    "profit": 8.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 48,
+  "fields": {
+    "game": 13,
+    "player": 6,
+    "rank": 3,
+    "score": 24900,
+    "profit": -15.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 49,
+  "fields": {
+    "game": 13,
+    "player": 1,
+    "rank": 4,
+    "score": 13600,
+    "profit": -46.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 50,
+  "fields": {
+    "game": 14,
+    "player": 3,
+    "rank": 1,
+    "score": 33200,
+    "profit": 53.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 51,
+  "fields": {
+    "game": 14,
+    "player": 6,
+    "rank": 2,
+    "score": 28500,
+    "profit": 8.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 52,
+  "fields": {
+    "game": 14,
+    "player": 1,
+    "rank": 3,
+    "score": 20300,
+    "profit": -19.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 53,
+  "fields": {
+    "game": 14,
+    "player": 5,
+    "rank": 4,
+    "score": 18000,
+    "profit": -42.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 54,
+  "fields": {
+    "game": 15,
+    "player": 5,
+    "rank": 1,
+    "score": 48100,
+    "profit": 68.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 55,
+  "fields": {
+    "game": 15,
+    "player": 6,
+    "rank": 2,
+    "score": 25800,
+    "profit": 5.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 56,
+  "fields": {
+    "game": 15,
+    "player": 1,
+    "rank": 3,
+    "score": 20600,
+    "profit": -19.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 57,
+  "fields": {
+    "game": 15,
+    "player": 2,
+    "rank": 4,
+    "score": 5500,
+    "profit": -54.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 58,
+  "fields": {
+    "game": 16,
+    "player": 6,
+    "rank": 1,
+    "score": 36800,
+    "profit": 56.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 59,
+  "fields": {
+    "game": 16,
+    "player": 3,
+    "rank": 2,
+    "score": 33900,
+    "profit": 13.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 60,
+  "fields": {
+    "game": 16,
+    "player": 5,
+    "rank": 3,
+    "score": 30600,
+    "profit": -9.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 61,
+  "fields": {
+    "game": 16,
+    "player": 1,
+    "rank": 4,
+    "score": -1300,
+    "profit": -61.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 62,
+  "fields": {
+    "game": 17,
+    "player": 5,
+    "rank": 1,
+    "score": 46100,
+    "profit": 66.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 63,
+  "fields": {
+    "game": 17,
+    "player": 1,
+    "rank": 2,
+    "score": 29600,
+    "profit": 9.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 64,
+  "fields": {
+    "game": 17,
+    "player": 6,
+    "rank": 3,
+    "score": 20700,
+    "profit": -19.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 65,
+  "fields": {
+    "game": 17,
+    "player": 2,
+    "rank": 4,
+    "score": 3600,
+    "profit": -56.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 66,
+  "fields": {
+    "game": 18,
+    "player": 5,
+    "rank": 1,
+    "score": 48200,
+    "profit": 68.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 67,
+  "fields": {
+    "game": 18,
+    "player": 1,
+    "rank": 2,
+    "score": 34300,
+    "profit": 14.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 68,
+  "fields": {
+    "game": 18,
+    "player": 2,
+    "rank": 3,
+    "score": 21700,
+    "profit": -18.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 69,
+  "fields": {
+    "game": 18,
+    "player": 6,
+    "rank": 4,
+    "score": -4200,
+    "profit": -64.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 74,
+  "fields": {
+    "game": 20,
+    "player": 1,
+    "rank": 1,
+    "score": 53300,
+    "profit": 73.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 75,
+  "fields": {
+    "game": 20,
+    "player": 5,
+    "rank": 2,
+    "score": 21800,
+    "profit": 1.8000000000000007
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 76,
+  "fields": {
+    "game": 20,
+    "player": 2,
+    "rank": 3,
+    "score": 14000,
+    "profit": -26.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 77,
+  "fields": {
+    "game": 20,
+    "player": 6,
+    "rank": 4,
+    "score": 10900,
+    "profit": -49.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 78,
+  "fields": {
+    "game": 21,
+    "player": 1,
+    "rank": 1,
+    "score": 33700,
+    "profit": 53.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 79,
+  "fields": {
+    "game": 21,
+    "player": 6,
+    "rank": 2,
+    "score": 33300,
+    "profit": 13.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 80,
+  "fields": {
+    "game": 21,
+    "player": 5,
+    "rank": 3,
+    "score": 16600,
+    "profit": -23.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 81,
+  "fields": {
+    "game": 21,
+    "player": 2,
+    "rank": 4,
+    "score": 16400,
+    "profit": -43.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 82,
+  "fields": {
+    "game": 22,
+    "player": 5,
+    "rank": 1,
+    "score": 46200,
+    "profit": 66.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 83,
+  "fields": {
+    "game": 22,
+    "player": 1,
+    "rank": 2,
+    "score": 27800,
+    "profit": 7.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 84,
+  "fields": {
+    "game": 22,
+    "player": 6,
+    "rank": 3,
+    "score": 17200,
+    "profit": -22.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 85,
+  "fields": {
+    "game": 22,
+    "player": 2,
+    "rank": 4,
+    "score": 8800,
+    "profit": -51.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 86,
+  "fields": {
+    "game": 23,
+    "player": 1,
+    "rank": 1,
+    "score": 32600,
+    "profit": 52.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 87,
+  "fields": {
+    "game": 23,
+    "player": 5,
+    "rank": 2,
+    "score": 31000,
+    "profit": 11.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 88,
+  "fields": {
+    "game": 23,
+    "player": 6,
+    "rank": 3,
+    "score": 19700,
+    "profit": -20.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 89,
+  "fields": {
+    "game": 23,
+    "player": 2,
+    "rank": 4,
+    "score": 16700,
+    "profit": -43.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 90,
+  "fields": {
+    "game": 24,
+    "player": 5,
+    "rank": 1,
+    "score": 43500,
+    "profit": 63.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 91,
+  "fields": {
+    "game": 24,
+    "player": 1,
+    "rank": 2,
+    "score": 37000,
+    "profit": 17.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 92,
+  "fields": {
+    "game": 24,
+    "player": 6,
+    "rank": 3,
+    "score": 15000,
+    "profit": -25.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 93,
+  "fields": {
+    "game": 24,
+    "player": 2,
+    "rank": 4,
+    "score": 4500,
+    "profit": -55.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 94,
+  "fields": {
+    "game": 25,
+    "player": 6,
+    "rank": 1,
+    "score": 37000,
+    "profit": 57.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 95,
+  "fields": {
+    "game": 25,
+    "player": 5,
+    "rank": 2,
+    "score": 35000,
+    "profit": 15.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 96,
+  "fields": {
+    "game": 25,
+    "player": 1,
+    "rank": 3,
+    "score": 20400,
+    "profit": -19.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 97,
+  "fields": {
+    "game": 25,
+    "player": 2,
+    "rank": 4,
+    "score": 7600,
+    "profit": -52.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 98,
+  "fields": {
+    "game": 26,
+    "player": 5,
+    "rank": 1,
+    "score": 46900,
+    "profit": 66.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 99,
+  "fields": {
+    "game": 26,
+    "player": 6,
+    "rank": 2,
+    "score": 36200,
+    "profit": 16.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 100,
+  "fields": {
+    "game": 26,
+    "player": 1,
+    "rank": 3,
+    "score": 23600,
+    "profit": -16.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 101,
+  "fields": {
+    "game": 26,
+    "player": 2,
+    "rank": 4,
+    "score": -6700,
+    "profit": -66.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 102,
+  "fields": {
+    "game": 27,
+    "player": 5,
+    "rank": 1,
+    "score": 72100,
+    "profit": 92.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 103,
+  "fields": {
+    "game": 27,
+    "player": 1,
+    "rank": 2,
+    "score": 20200,
+    "profit": 0.1999999999999993
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 104,
+  "fields": {
+    "game": 27,
+    "player": 2,
+    "rank": 3,
+    "score": 4600,
+    "profit": -35.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 105,
+  "fields": {
+    "game": 27,
+    "player": 6,
+    "rank": 4,
+    "score": 3100,
+    "profit": -56.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 106,
+  "fields": {
+    "game": 28,
+    "player": 5,
+    "rank": 1,
+    "score": 37900,
+    "profit": 57.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 107,
+  "fields": {
+    "game": 28,
+    "player": 1,
+    "rank": 2,
+    "score": 30100,
+    "profit": 10.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 108,
+  "fields": {
+    "game": 28,
+    "player": 6,
+    "rank": 3,
+    "score": 17500,
+    "profit": -22.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 109,
+  "fields": {
+    "game": 28,
+    "player": 2,
+    "rank": 4,
+    "score": 14500,
+    "profit": -45.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 110,
+  "fields": {
+    "game": 29,
+    "player": 3,
+    "rank": 1,
+    "score": 33400,
+    "profit": 53.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 111,
+  "fields": {
+    "game": 29,
+    "player": 6,
+    "rank": 2,
+    "score": 30200,
+    "profit": 10.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 112,
+  "fields": {
+    "game": 29,
+    "player": 4,
+    "rank": 3,
+    "score": 19400,
+    "profit": -20.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 113,
+  "fields": {
+    "game": 29,
+    "player": 7,
+    "rank": 4,
+    "score": 17000,
+    "profit": -43.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 114,
+  "fields": {
+    "game": 30,
+    "player": 6,
+    "rank": 1,
+    "score": 43800,
+    "profit": 63.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 115,
+  "fields": {
+    "game": 30,
+    "player": 7,
+    "rank": 2,
+    "score": 36500,
+    "profit": 16.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 116,
+  "fields": {
+    "game": 30,
+    "player": 5,
+    "rank": 3,
+    "score": 25300,
+    "profit": -14.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 117,
+  "fields": {
+    "game": 30,
+    "player": 2,
+    "rank": 4,
+    "score": -5600,
+    "profit": -65.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 118,
+  "fields": {
+    "game": 31,
+    "player": 6,
+    "rank": 1,
+    "score": 37700,
+    "profit": 57.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 119,
+  "fields": {
+    "game": 31,
+    "player": 5,
+    "rank": 2,
+    "score": 27900,
+    "profit": 7.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 120,
+  "fields": {
+    "game": 31,
+    "player": 2,
+    "rank": 3,
+    "score": 18100,
+    "profit": -21.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 121,
+  "fields": {
+    "game": 31,
+    "player": 4,
+    "rank": 4,
+    "score": 16300,
+    "profit": -43.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 122,
+  "fields": {
+    "game": 32,
+    "player": 5,
+    "rank": 1,
+    "score": 35700,
+    "profit": 55.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 123,
+  "fields": {
+    "game": 32,
+    "player": 6,
+    "rank": 2,
+    "score": 23800,
+    "profit": 3.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 124,
+  "fields": {
+    "game": 32,
+    "player": 1,
+    "rank": 3,
+    "score": 22700,
+    "profit": -17.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 125,
+  "fields": {
+    "game": 32,
+    "player": 2,
+    "rank": 4,
+    "score": 17800,
+    "profit": -42.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 126,
+  "fields": {
+    "game": 33,
+    "player": 1,
+    "rank": 1,
+    "score": 38700,
+    "profit": 58.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 127,
+  "fields": {
+    "game": 33,
+    "player": 2,
+    "rank": 2,
+    "score": 35100,
+    "profit": 15.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 128,
+  "fields": {
+    "game": 33,
+    "player": 5,
+    "rank": 3,
+    "score": 14200,
+    "profit": -25.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 129,
+  "fields": {
+    "game": 33,
+    "player": 6,
+    "rank": 4,
+    "score": 12000,
+    "profit": -48.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 130,
+  "fields": {
+    "game": 34,
+    "player": 6,
+    "rank": 1,
+    "score": 42400,
+    "profit": 62.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 131,
+  "fields": {
+    "game": 34,
+    "player": 5,
+    "rank": 2,
+    "score": 30900,
+    "profit": 10.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 132,
+  "fields": {
+    "game": 34,
+    "player": 2,
+    "rank": 3,
+    "score": 16900,
+    "profit": -23.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 133,
+  "fields": {
+    "game": 34,
+    "player": 1,
+    "rank": 4,
+    "score": 9800,
+    "profit": -50.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 134,
+  "fields": {
+    "game": 35,
+    "player": 2,
+    "rank": 1,
+    "score": 47800,
+    "profit": 67.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 135,
+  "fields": {
+    "game": 35,
+    "player": 6,
+    "rank": 2,
+    "score": 33900,
+    "profit": 13.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 136,
+  "fields": {
+    "game": 35,
+    "player": 5,
+    "rank": 3,
+    "score": 19400,
+    "profit": -20.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 137,
+  "fields": {
+    "game": 35,
+    "player": 1,
+    "rank": 4,
+    "score": -1100,
+    "profit": -61.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 138,
+  "fields": {
+    "game": 36,
+    "player": 6,
+    "rank": 1,
+    "score": 34100,
+    "profit": 54.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 139,
+  "fields": {
+    "game": 36,
+    "player": 5,
+    "rank": 2,
+    "score": 32200,
+    "profit": 12.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 140,
+  "fields": {
+    "game": 36,
+    "player": 2,
+    "rank": 3,
+    "score": 20900,
+    "profit": -19.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 141,
+  "fields": {
+    "game": 36,
+    "player": 1,
+    "rank": 4,
+    "score": 12800,
+    "profit": -47.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 142,
+  "fields": {
+    "game": 37,
+    "player": 2,
+    "rank": 1,
+    "score": 46800,
+    "profit": 66.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 143,
+  "fields": {
+    "game": 37,
+    "player": 5,
+    "rank": 2,
+    "score": 29900,
+    "profit": 9.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 144,
+  "fields": {
+    "game": 37,
+    "player": 6,
+    "rank": 3,
+    "score": 18400,
+    "profit": -21.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 145,
+  "fields": {
+    "game": 37,
+    "player": 1,
+    "rank": 4,
+    "score": 4900,
+    "profit": -55.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 146,
+  "fields": {
+    "game": 38,
+    "player": 2,
+    "rank": 1,
+    "score": 44200,
+    "profit": 64.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 147,
+  "fields": {
+    "game": 38,
+    "player": 1,
+    "rank": 2,
+    "score": 34000,
+    "profit": 14.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 148,
+  "fields": {
+    "game": 38,
+    "player": 6,
+    "rank": 3,
+    "score": 11000,
+    "profit": -29.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 149,
+  "fields": {
+    "game": 38,
+    "player": 5,
+    "rank": 4,
+    "score": 10800,
+    "profit": -49.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 150,
+  "fields": {
+    "game": 39,
+    "player": 1,
+    "rank": 1,
+    "score": 59000,
+    "profit": 79.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 151,
+  "fields": {
+    "game": 39,
+    "player": 5,
+    "rank": 2,
+    "score": 33200,
+    "profit": 13.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 152,
+  "fields": {
+    "game": 39,
+    "player": 6,
+    "rank": 3,
+    "score": 20900,
+    "profit": -19.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 153,
+  "fields": {
+    "game": 39,
+    "player": 2,
+    "rank": 4,
+    "score": -13100,
+    "profit": -73.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 154,
+  "fields": {
+    "game": 40,
+    "player": 1,
+    "rank": 1,
+    "score": 36100,
+    "profit": 56.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 155,
+  "fields": {
+    "game": 40,
+    "player": 6,
+    "rank": 2,
+    "score": 30500,
+    "profit": 10.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 156,
+  "fields": {
+    "game": 40,
+    "player": 5,
+    "rank": 3,
+    "score": 18400,
+    "profit": -21.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 157,
+  "fields": {
+    "game": 40,
+    "player": 2,
+    "rank": 4,
+    "score": 15000,
+    "profit": -45.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 158,
+  "fields": {
+    "game": 41,
+    "player": 1,
+    "rank": 1,
+    "score": 41100,
+    "profit": 61.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 159,
+  "fields": {
+    "game": 41,
+    "player": 6,
+    "rank": 2,
+    "score": 29200,
+    "profit": 9.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 160,
+  "fields": {
+    "game": 41,
+    "player": 5,
+    "rank": 3,
+    "score": 15500,
+    "profit": -24.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 161,
+  "fields": {
+    "game": 41,
+    "player": 2,
+    "rank": 4,
+    "score": 14200,
+    "profit": -45.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 162,
+  "fields": {
+    "game": 42,
+    "player": 2,
+    "rank": 1,
+    "score": 62800,
+    "profit": 82.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 163,
+  "fields": {
+    "game": 42,
+    "player": 5,
+    "rank": 2,
+    "score": 46400,
+    "profit": 26.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 164,
+  "fields": {
+    "game": 42,
+    "player": 1,
+    "rank": 3,
+    "score": 26100,
+    "profit": -13.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 165,
+  "fields": {
+    "game": 42,
+    "player": 6,
+    "rank": 4,
+    "score": -35300,
+    "profit": -95.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 166,
+  "fields": {
+    "game": 43,
+    "player": 2,
+    "rank": 1,
+    "score": 55400,
+    "profit": 75.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 167,
+  "fields": {
+    "game": 43,
+    "player": 1,
+    "rank": 2,
+    "score": 16700,
+    "profit": -3.3000000000000007
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 168,
+  "fields": {
+    "game": 43,
+    "player": 3,
+    "rank": 3,
+    "score": 14700,
+    "profit": -25.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 169,
+  "fields": {
+    "game": 43,
+    "player": 5,
+    "rank": 4,
+    "score": 13200,
+    "profit": -46.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 170,
+  "fields": {
+    "game": 44,
+    "player": 3,
+    "rank": 1,
+    "score": 44600,
+    "profit": 64.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 171,
+  "fields": {
+    "game": 44,
+    "player": 5,
+    "rank": 2,
+    "score": 25500,
+    "profit": 5.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 172,
+  "fields": {
+    "game": 44,
+    "player": 1,
+    "rank": 3,
+    "score": 16200,
+    "profit": -23.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 173,
+  "fields": {
+    "game": 44,
+    "player": 2,
+    "rank": 4,
+    "score": 13700,
+    "profit": -46.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 174,
+  "fields": {
+    "game": 45,
+    "player": 2,
+    "rank": 1,
+    "score": 48900,
+    "profit": 68.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 175,
+  "fields": {
+    "game": 45,
+    "player": 1,
+    "rank": 2,
+    "score": 34100,
+    "profit": 14.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 176,
+  "fields": {
+    "game": 45,
+    "player": 5,
+    "rank": 3,
+    "score": 26400,
+    "profit": -13.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 177,
+  "fields": {
+    "game": 45,
+    "player": 3,
+    "rank": 4,
+    "score": -9400,
+    "profit": -69.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 178,
+  "fields": {
+    "game": 46,
+    "player": 2,
+    "rank": 1,
+    "score": 52100,
+    "profit": 72.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 179,
+  "fields": {
+    "game": 46,
+    "player": 5,
+    "rank": 2,
+    "score": 26600,
+    "profit": 6.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 180,
+  "fields": {
+    "game": 46,
+    "player": 3,
+    "rank": 3,
+    "score": 12400,
+    "profit": -27.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 181,
+  "fields": {
+    "game": 46,
+    "player": 1,
+    "rank": 4,
+    "score": 8900,
+    "profit": -51.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 182,
+  "fields": {
+    "game": 47,
+    "player": 3,
+    "rank": 1,
+    "score": 43800,
+    "profit": 63.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 183,
+  "fields": {
+    "game": 47,
+    "player": 5,
+    "rank": 2,
+    "score": 32400,
+    "profit": 12.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 184,
+  "fields": {
+    "game": 47,
+    "player": 1,
+    "rank": 3,
+    "score": 32100,
+    "profit": -7.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 185,
+  "fields": {
+    "game": 47,
+    "player": 2,
+    "rank": 4,
+    "score": -8300,
+    "profit": -68.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 186,
+  "fields": {
+    "game": 48,
+    "player": 1,
+    "rank": 1,
+    "score": 51800,
+    "profit": 71.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 187,
+  "fields": {
+    "game": 48,
+    "player": 5,
+    "rank": 2,
+    "score": 32100,
+    "profit": 12.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 188,
+  "fields": {
+    "game": 48,
+    "player": 2,
+    "rank": 3,
+    "score": 29000,
+    "profit": -11.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 189,
+  "fields": {
+    "game": 48,
+    "player": 3,
+    "rank": 4,
+    "score": -12900,
+    "profit": -72.9
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 190,
+  "fields": {
+    "game": 49,
+    "player": 1,
+    "rank": 1,
+    "score": 61700,
+    "profit": 81.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 191,
+  "fields": {
+    "game": 49,
+    "player": 3,
+    "rank": 2,
+    "score": 37800,
+    "profit": 17.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 192,
+  "fields": {
+    "game": 49,
+    "player": 5,
+    "rank": 3,
+    "score": 24200,
+    "profit": -15.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 193,
+  "fields": {
+    "game": 49,
+    "player": 2,
+    "rank": 4,
+    "score": -23700,
+    "profit": -83.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 198,
+  "fields": {
+    "game": 51,
+    "player": 2,
+    "rank": 1,
+    "score": 54200,
+    "profit": 74.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 199,
+  "fields": {
+    "game": 51,
+    "player": 7,
+    "rank": 2,
+    "score": 23900,
+    "profit": 3.9000000000000004
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 200,
+  "fields": {
+    "game": 51,
+    "player": 5,
+    "rank": 3,
+    "score": 16900,
+    "profit": -23.1
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 201,
+  "fields": {
+    "game": 51,
+    "player": 6,
+    "rank": 4,
+    "score": 5000,
+    "profit": -55.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 202,
+  "fields": {
+    "game": 52,
+    "player": 6,
+    "rank": 1,
+    "score": 43700,
+    "profit": 63.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 203,
+  "fields": {
+    "game": 52,
+    "player": 5,
+    "rank": 2,
+    "score": 39400,
+    "profit": 19.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 204,
+  "fields": {
+    "game": 52,
+    "player": 7,
+    "rank": 3,
+    "score": 10300,
+    "profit": -29.7
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 205,
+  "fields": {
+    "game": 52,
+    "player": 2,
+    "rank": 4,
+    "score": 6600,
+    "profit": -53.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 206,
+  "fields": {
+    "game": 53,
+    "player": 5,
+    "rank": 1,
+    "score": 38000,
+    "profit": 58.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 207,
+  "fields": {
+    "game": 53,
+    "player": 3,
+    "rank": 2,
+    "score": 34600,
+    "profit": 14.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 208,
+  "fields": {
+    "game": 53,
+    "player": 6,
+    "rank": 3,
+    "score": 14400,
+    "profit": -25.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 209,
+  "fields": {
+    "game": 53,
+    "player": 7,
+    "rank": 4,
+    "score": 13000,
+    "profit": -47.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 210,
+  "fields": {
+    "game": 54,
+    "player": 3,
+    "rank": 1,
+    "score": 44500,
+    "profit": 64.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 211,
+  "fields": {
+    "game": 54,
+    "player": 7,
+    "rank": 2,
+    "score": 24800,
+    "profit": 4.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 212,
+  "fields": {
+    "game": 54,
+    "player": 6,
+    "rank": 3,
+    "score": 19700,
+    "profit": -20.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 213,
+  "fields": {
+    "game": 54,
+    "player": 5,
+    "rank": 4,
+    "score": 11000,
+    "profit": -49.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 214,
+  "fields": {
+    "game": 55,
+    "player": 3,
+    "rank": 1,
+    "score": 44500,
+    "profit": 64.5
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 215,
+  "fields": {
+    "game": 55,
+    "player": 6,
+    "rank": 2,
+    "score": 40300,
+    "profit": 20.3
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 216,
+  "fields": {
+    "game": 55,
+    "player": 5,
+    "rank": 3,
+    "score": 10600,
+    "profit": -29.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 217,
+  "fields": {
+    "game": 55,
+    "player": 7,
+    "rank": 4,
+    "score": 4600,
+    "profit": -55.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 218,
+  "fields": {
+    "game": 56,
+    "player": 3,
+    "rank": 1,
+    "score": 30400,
+    "profit": 50.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 219,
+  "fields": {
+    "game": 56,
+    "player": 6,
+    "rank": 2,
+    "score": 29200,
+    "profit": 9.2
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 220,
+  "fields": {
+    "game": 56,
+    "player": 5,
+    "rank": 3,
+    "score": 29000,
+    "profit": -11.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 221,
+  "fields": {
+    "game": 56,
+    "player": 2,
+    "rank": 4,
+    "score": 11400,
+    "profit": -48.6
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 222,
+  "fields": {
+    "game": 57,
+    "player": 6,
+    "rank": 1,
+    "score": 46000,
+    "profit": 66.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 223,
+  "fields": {
+    "game": 57,
+    "player": 2,
+    "rank": 2,
+    "score": 37800,
+    "profit": 17.8
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 224,
+  "fields": {
+    "game": 57,
+    "player": 3,
+    "rank": 3,
+    "score": 17600,
+    "profit": -22.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 225,
+  "fields": {
+    "game": 57,
+    "player": 5,
+    "rank": 4,
+    "score": -1400,
+    "profit": -61.4
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 226,
+  "fields": {
+    "game": 58,
+    "player": 3,
+    "rank": 1,
+    "score": 82000,
+    "profit": 102.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 227,
+  "fields": {
+    "game": 58,
+    "player": 6,
+    "rank": 2,
+    "score": 22100,
+    "profit": 2.0999999999999996
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 228,
+  "fields": {
+    "game": 58,
+    "player": 2,
+    "rank": 3,
+    "score": 0,
+    "profit": -40.0
+  }
+},
+{
+  "model": "mahjong.result",
+  "pk": 229,
+  "fields": {
+    "game": 58,
+    "player": 5,
+    "rank": 4,
+    "score": -4100,
+    "profit": -64.1
+  }
+}
+]
