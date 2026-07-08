@@ -21,7 +21,7 @@ class Game(models.Model):
     season = models.ForeignKey(Season, on_delete=models.CASCADE)
     date = models.DateField()
     game_number = models.IntegerField()
-
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.season.name} {self.date} 第{self.game_number}回"
