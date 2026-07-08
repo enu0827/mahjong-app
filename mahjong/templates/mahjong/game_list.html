@@ -18,7 +18,10 @@
 {% for game in games %}
 <div class="card">
     <h3>{{ game.date }}　第{{ game.game_number }}戦</h3>
-
+    <p style="font-size:13px;color:#999;">
+    登録日時：
+    {{ game.created_at|date:"Y/m/d H:i" }}
+    </p>
     <div class="table-wrap">
         <table>
             <tr>
