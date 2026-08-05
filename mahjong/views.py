@@ -77,7 +77,11 @@ def add_game(request):
                     new_season_name = f"{season_name} 次シーズン"
 
                 season, created = Season.objects.get_or_create(
-                    name=new_season_name
+                    name=new_season_name,
+                    defaults={
+                        "start_date": game_date,
+                        "end_date": game_date,
+                    }
                 )
 
                 season_game_count = Game.objects.filter(
@@ -259,11 +263,14 @@ def add_game(request):
                         f"{season_name} 次シーズン"
                     )
 
-                selected_season, created = (
-                    Season.objects.get_or_create(
-                        name=new_season_name
-                    )
+                selected_season, created = Season.objects.get_or_create(
+                    name=new_season_name,
+                    defaults={
+                        "start_date":dt_date.today(),
+                        "end_date": dt_date.today(),
+                    }
                 )
+                   
 
             else:
                 selected_season = last_season
