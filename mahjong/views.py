@@ -427,6 +427,109 @@ def season_ranking(request):
         "graph_data": json.dumps(graph_data, ensure_ascii=False),
     })
 
+@login_required
+def total_ranking(request):
+    ranking_list = []
+
+    players = Player.objects.all()
+
+    for player in players:
+        results = Result.objects.filter(player=player)
+
+        current_game_count = results.count()
+        current_profit = sum(result.profit for result in results)
+
+        current_first_count = results.filter(rank=1).count()
+        current_second_count = results.filter(rank=2).count()
+        current_third_count = results.filter(rank=3).count()
+        current_fourth_count = results.filter(rank=4).count()
+
+        # 第7節までの持ち越し成績を加える
+        game_count = (
+            player.carryover_game_count
+            + current_game_count
+        )
+
+        total_profit = (
+            player.carryover_profit
+            + current_profit
+        )
+
+        first_count = (
+            player.carryover_first_count
+            + current_first_count
+        )
+
+        second_count = (
+            player.carryover_second_count
+            + current_second_count
+        )
+
+        third_count = (
+            player.carryover_third_count
+            + current_third_count
+        )
+
+        fourth_count = (
+            player.carryover_fourth_count
+            + current_fourth_count
+        )
+
+        average_rank = (
+            (
+                first_count
+                + second_count * 2
+                + third_count * 3
+                + fourth_count * 4
+            ) / game_count
+            if game_count
+            else 0
+        )
+
+        top_rate = (
+            first_count / game_count * 100
+            if game_count
+            else 0
+        )
+
+        last_rate = (
+            fourth_count / game_count * 100
+            if game_count
+            else 0
+        )
+
+        avoid_last_rate = (
+            100 - last_rate
+            if game_count
+            else 0
+        )
+
+        ranking_list.append({
+            "player": player,
+            "total_profit": total_profit,
+            "game_count": game_count,
+            "average_rank": average_rank,
+            "top_rate": top_rate,
+            "avoid_last_rate": avoid_last_rate,
+            "first_count": first_count,
+            "second_count": second_count,
+            "third_count": third_count,
+            "fourth_count": fourth_count,
+        })
+
+    # 通算収支の高い順
+    ranking_list.sort(
+        key=lambda data: data["total_profit"],
+        reverse=True
+    )
+
+    return render(
+        request,
+        "mahjong/total_ranking.html",
+        {
+            "rankings": ranking_list,
+        },
+    )
 
 @login_required
 def player_detail(request, player_id):

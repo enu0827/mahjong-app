@@ -21,6 +21,7 @@ from mahjong.views import (
     add_game,
     game_list,
     season_ranking,
+    total_ranking,
     player_detail,
     daily_summary,
     edit_game,
@@ -35,4 +36,5 @@ urlpatterns = [
     path('player/<int:player_id>/', player_detail, name='player_detail'),
     path('daily/', daily_summary, name='daily_summary'),
     path('game/<int:game_id>/edit/', edit_game, name='edit_game'),
+    path("total-ranking/",total_ranking, name="total_ranking")
 ]
