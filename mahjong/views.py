@@ -432,20 +432,15 @@ def season_ranking(request):
 def player_detail(request, player_id):
     player = get_object_or_404(Player, id=player_id)
 
-    # URLの ?season=○ を取得
     season_id = request.GET.get("season")
-
-    # 全結果を取得
-    results = Result.objects.filter(
-        player=player
-    ).select_related(
-        "game",
-        "game__season"
-    )
-
     selected_season = None
 
-    # season指定がある場合、そのシーズンだけに絞る
+    results = (
+        Result.objects
+        .filter(player=player)
+        .select_related("game", "game__season")
+    )
+
     if season_id:
         selected_season = get_object_or_404(
             Season,
@@ -456,7 +451,6 @@ def player_detail(request, player_id):
             game__season=selected_season
         )
 
-    # グラフと累計計算用に古い順
     results = results.order_by(
         "game__date",
         "game__game_number",
@@ -465,49 +459,88 @@ def player_detail(request, player_id):
 
     history_results = list(results)
 
-    cumulative = 0
-    labels = []
-    profits = []
+    current_game_count = len(history_results)
 
-    for result in history_results:
-        cumulative += result.profit
-        result.cumulative_profit = cumulative
-
-        labels.append(
-            f"{result.game.season.name} 第{result.game.game_number}戦"
-        )
-        profits.append(cumulative)
-
-    game_count = len(history_results)
-    total_profit = sum(
+    current_profit = sum(
         result.profit
         for result in history_results
     )
 
-    average_rank = (
-        sum(result.rank for result in history_results) / game_count
-        if game_count
-        else 0
-    )
-
-    first_count = sum(
+    current_first_count = sum(
         1 for result in history_results
         if result.rank == 1
     )
 
-    second_count = sum(
+    current_second_count = sum(
         1 for result in history_results
         if result.rank == 2
     )
 
-    third_count = sum(
+    current_third_count = sum(
         1 for result in history_results
         if result.rank == 3
     )
 
-    fourth_count = sum(
+    current_fourth_count = sum(
         1 for result in history_results
         if result.rank == 4
+    )
+
+    # シーズン別表示
+    if selected_season:
+        game_count = current_game_count
+        total_profit = current_profit
+
+        first_count = current_first_count
+        second_count = current_second_count
+        third_count = current_third_count
+        fourth_count = current_fourth_count
+
+        cumulative = 0
+
+    # 通算表示
+    else:
+        game_count = (
+            player.carryover_game_count
+            + current_game_count
+        )
+
+        total_profit = (
+            player.carryover_profit
+            + current_profit
+        )
+
+        first_count = (
+            player.carryover_first_count
+            + current_first_count
+        )
+
+        second_count = (
+            player.carryover_second_count
+            + current_second_count
+        )
+
+        third_count = (
+            player.carryover_third_count
+            + current_third_count
+        )
+
+        fourth_count = (
+            player.carryover_fourth_count
+            + current_fourth_count
+        )
+
+        cumulative = player.carryover_profit
+
+    average_rank = (
+        (
+            first_count
+            + second_count * 2
+            + third_count * 3
+            + fourth_count * 4
+        ) / game_count
+        if game_count
+        else 0
     )
 
     top_rate = (
@@ -528,7 +561,20 @@ def player_detail(request, player_id):
         else 0
     )
 
-    # 履歴は新しい順で表示
+    labels = []
+    profits = []
+
+    for result in history_results:
+        cumulative += result.profit
+        result.cumulative_profit = cumulative
+
+        labels.append(
+            f"{result.game.season.name} 第{result.game.game_number}戦"
+        )
+
+        profits.append(cumulative)
+
+    # 履歴表示は新しい順
     history_results.reverse()
 
     return render(
@@ -556,9 +602,12 @@ def player_detail(request, player_id):
                 ensure_ascii=False
             ),
             "profits": json.dumps(profits),
+
             "results": history_results,
         },
     )
+
+
 @login_required
 def daily_summary(request):
     date = request.GET.get("date")
