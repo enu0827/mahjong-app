@@ -1,11 +1,62 @@
 {% extends "mahjong/base.html" %}
 
 {% block content %}
+<label for="season-select">表示する成績</label>
+
+    <select
+        id="season-select"
+        name="season"
+        onchange="this.form.submit()"
+    >
+        <option value="">通算</option>
+
+        {% for season in seasons %}
+        <option
+            value="{{ season.id }}"
+            {% if selected_season and season.id == selected_season.id %}
+                selected
+            {% endif %}
+        >
+            {{ season.name }}
+        </option>
+        {% endfor %}
+    </select>
+</form>
 
 <div class="card">
     <p class="card-eyebrow">PLAYER PROFILE</p>
     <h2>{{ player.name }}</h2>
-    <p>個人成績</p>
+
+    {% if selected_season %}
+        <p>{{ selected_season.name }} 個人成績</p>
+    {% else %}
+        <p>通算個人成績</p>
+    {% endif %}
+
+    <form method="get">
+        <label for="season-select">表示する成績</label>
+
+        <select
+            id="season-select"
+            name="season"
+            onchange="this.form.submit()"
+        >
+            <option value="">
+                通算
+            </option>
+
+            {% for season in seasons %}
+            <option
+                value="{{ season.id }}"
+                {% if selected_season and season.id == selected_season.id %}
+                    selected
+                {% endif %}
+            >
+                {{ season.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </form>
 </div>
 
 <div class="card">
@@ -87,6 +138,10 @@
     <div class="table-wrap">
         <table>
             <tr>
+                {% if not selected_season %}
+                <th>シーズン</th>
+                {% endif %}
+
                 <th>戦</th>
                 <th>日付</th>
                 <th>着順</th>
@@ -97,6 +152,11 @@
 
             {% for result in results %}
             <tr>
+                
+                {% if not selected_season %}
+                <td>{{ result.game.season.name }}</td>
+                {% endif %}
+
                 <td>第{{ result.game.game_number }}戦</td>
                 <td>{{ result.game.date }}</td>
                 <td><span class="rank-chip r{{ result.rank }}">{{ result.rank }}</span></td>

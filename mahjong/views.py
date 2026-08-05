@@ -432,7 +432,36 @@ def season_ranking(request):
 def player_detail(request, player_id):
     player = get_object_or_404(Player, id=player_id)
 
-    results = Result.objects.filter(player=player).order_by("game__game_number")
+    # URLの ?season=○ を取得
+    season_id = request.GET.get("season")
+
+    # 全結果を取得
+    results = Result.objects.filter(
+        player=player
+    ).select_related(
+        "game",
+        "game__season"
+    )
+
+    selected_season = None
+
+    # season指定がある場合、そのシーズンだけに絞る
+    if season_id:
+        selected_season = get_object_or_404(
+            Season,
+            id=season_id
+        )
+
+        results = results.filter(
+            game__season=selected_season
+        )
+
+    # グラフと累計計算用に古い順
+    results = results.order_by(
+        "game__date",
+        "game__game_number",
+        "id"
+    )
 
     history_results = list(results)
 
@@ -444,26 +473,62 @@ def player_detail(request, player_id):
         cumulative += result.profit
         result.cumulative_profit = cumulative
 
-        labels.append(f"第{result.game.game_number}戦")
+        labels.append(
+            f"{result.game.season.name} 第{result.game.game_number}戦"
+        )
         profits.append(cumulative)
 
     game_count = len(history_results)
-    total_profit = sum(r.profit for r in history_results)
-
-    average_rank = (
-        sum(r.rank for r in history_results) / game_count
-        if game_count else 0
+    total_profit = sum(
+        result.profit
+        for result in history_results
     )
 
-    first_count = sum(1 for r in history_results if r.rank == 1)
-    second_count = sum(1 for r in history_results if r.rank == 2)
-    third_count = sum(1 for r in history_results if r.rank == 3)
-    fourth_count = sum(1 for r in history_results if r.rank == 4)
+    average_rank = (
+        sum(result.rank for result in history_results) / game_count
+        if game_count
+        else 0
+    )
 
-    top_rate = first_count / game_count * 100 if game_count else 0
-    last_rate = fourth_count / game_count * 100 if game_count else 0
-    avoid_last_rate = 100 - last_rate if game_count else 0
+    first_count = sum(
+        1 for result in history_results
+        if result.rank == 1
+    )
 
+    second_count = sum(
+        1 for result in history_results
+        if result.rank == 2
+    )
+
+    third_count = sum(
+        1 for result in history_results
+        if result.rank == 3
+    )
+
+    fourth_count = sum(
+        1 for result in history_results
+        if result.rank == 4
+    )
+
+    top_rate = (
+        first_count / game_count * 100
+        if game_count
+        else 0
+    )
+
+    last_rate = (
+        fourth_count / game_count * 100
+        if game_count
+        else 0
+    )
+
+    avoid_last_rate = (
+        100 - last_rate
+        if game_count
+        else 0
+    )
+
+    # 履歴は新しい順で表示
     history_results.reverse()
 
     return render(
@@ -471,22 +536,29 @@ def player_detail(request, player_id):
         "mahjong/player_detail.html",
         {
             "player": player,
+            "selected_season": selected_season,
+            "seasons": Season.objects.order_by("-id"),
+
             "game_count": game_count,
             "total_profit": total_profit,
             "average_rank": average_rank,
             "top_rate": top_rate,
             "last_rate": last_rate,
             "avoid_last_rate": avoid_last_rate,
+
             "first_count": first_count,
             "second_count": second_count,
             "third_count": third_count,
             "fourth_count": fourth_count,
-            "labels": json.dumps(labels, ensure_ascii=False),
+
+            "labels": json.dumps(
+                labels,
+                ensure_ascii=False
+            ),
             "profits": json.dumps(profits),
             "results": history_results,
         },
     )
-
 @login_required
 def daily_summary(request):
     date = request.GET.get("date")
