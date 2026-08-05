@@ -302,6 +302,17 @@ def add_game(request):
         },
     )
 
+def game_list(request):
+    games = Game.objects.order_by("-date", "-game_number")
+
+    return render(
+        request,
+        "mahjong/game_list.html",
+        {
+            "games": games,
+        }
+    )
+
 @login_required
 def season_ranking(request):
     season_id = request.GET.get("season")
