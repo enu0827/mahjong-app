@@ -1,0 +1,87 @@
+{% extends "mahjong/base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <p class="card-eyebrow">ALL-TIME RANKING</p>
+    <h2>🏆 通算成績ランキング</h2>
+    <p>第7節までの持ち越し成績を含む通算成績</p>
+</div>
+
+<div class="card">
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>順位</th>
+                <th>名前</th>
+                <th class="num">通算収支</th>
+                <th class="num">対局数</th>
+                <th class="num">平均着順</th>
+                <th class="num">トップ率</th>
+                <th class="num">ラス回避率</th>
+            </tr>
+
+            {% for data in rankings %}
+            <tr>
+                <td>
+                    {% if forloop.counter == 1 %}
+                        🥇
+                    {% elif forloop.counter == 2 %}
+                        🥈
+                    {% elif forloop.counter == 3 %}
+                        🥉
+                    {% else %}
+                        {{ forloop.counter }}
+                    {% endif %}
+                </td>
+
+                <td>
+                    <a href="{% url 'player_detail' data.player.id %}">
+                        {{ data.player.name }}
+                    </a>
+                </td>
+
+                <td class="num">
+                    {{ data.total_profit|floatformat:1 }}
+                </td>
+
+                <td class="num">
+                    {{ data.game_count }}
+                </td>
+
+                <td class="num">
+                    {{ data.average_rank|floatformat:2 }}
+                </td>
+
+                <td class="num">
+                    {{ data.top_rate|floatformat:1 }}%
+                </td>
+
+                <td class="num">
+                    {{ data.avoid_last_rate|floatformat:1 }}%
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">
+                    成績データがありません。
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <a class="back-link" href="{% url 'season_ranking' %}">
+        ← シーズンランキングへ
+    </a>
+</div>
+
+<div class="card">
+    <a class="back-link" href="{% url 'home' %}">
+        ← トップへ戻る
+    </a>
+</div>
+
+{% endblock %}
