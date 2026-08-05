@@ -47,23 +47,62 @@ def home(request):
 @login_required
 def add_game(request):
     next_game_number = 1
+    season_game_count = 0
 
     if request.method == "POST":
         form = GameResultForm(request.POST)
 
         if form.is_valid():
             season = form.cleaned_data["season"]
-            date = form.cleaned_data["date"]
+            game_date = form.cleaned_data["date"]
 
-            season_game_count = Game.objects.filter(season=season).count()
+            season_game_count = Game.objects.filter(
+                season=season
+            ).count()
+
+            # 選択したシーズンが80戦に到達していたら、
+            # 次の「第◯節」を自動作成して切り替える
+            if season_game_count >= 80:
+                season_name = season.name
+
+                try:
+                    season_number = int(
+                        season_name
+                        .replace("第", "")
+                        .replace("節", "")
+                    )
+                    new_season_name = f"第{season_number + 1}節"
+
+                except ValueError:
+                    new_season_name = f"{season_name} 次シーズン"
+
+                season, created = Season.objects.get_or_create(
+                    name=new_season_name
+                )
+
+                season_game_count = Game.objects.filter(
+                    season=season
+                ).count()
+
             next_game_number = season_game_count + 1
 
+            # 念のため、新しいシーズン側も80戦なら登録を止める
             if season_game_count >= 80:
-                form.add_error(None, "このシーズンは80戦に到達しています。次のシーズンを作成してください。")
-                return render(request, "mahjong/add_game.html", {
-                    "form": form,
-                    "next_game_number": next_game_number,
-                })
+                form.add_error(
+                    None,
+                    "次のシーズンも80戦に到達しています。"
+                    "管理画面から新しいシーズンを確認してください。"
+                )
+
+                return render(
+                    request,
+                    "mahjong/add_game.html",
+                    {
+                        "form": form,
+                        "next_game_number": next_game_number,
+                        "season_game_count": season_game_count,
+                    },
+                )
 
             players_scores = []
 
@@ -74,38 +113,94 @@ def add_game(request):
                 })
 
             # プレイヤー重複チェック
-            players = [data["player"] for data in players_scores]
+            selected_players = [
+                data["player"]
+                for data in players_scores
+            ]
 
-            if len(players) != len(set(players)):
-                form.add_error(None, "同じプレイヤーが選択されています。")
-                return render(request, "mahjong/add_game.html", {
-                    "form": form,
-                    "next_game_number": next_game_number,
-                })
+            if len(selected_players) != len(set(selected_players)):
+                form.add_error(
+                    None,
+                    "同じプレイヤーが選択されています。"
+                )
+
+                return render(
+                    request,
+                    "mahjong/add_game.html",
+                    {
+                        "form": form,
+                        "next_game_number": next_game_number,
+                        "season_game_count": season_game_count,
+                    },
+                )
 
             # 合計点チェック
-            total_score = sum(data["score"] for data in players_scores)
+            total_score = sum(
+                data["score"]
+                for data in players_scores
+            )
 
             if total_score != 100000:
-                form.add_error(None, f"4人の合計点が100000点ではありません。現在は{total_score}点です。")
-                return render(request, "mahjong/add_game.html", {
-                    "form": form,
-                    "next_game_number": next_game_number,
-                })
+                form.add_error(
+                    None,
+                    f"4人の合計点が100000点ではありません。"
+                    f"現在は{total_score}点です。"
+                )
 
-            game_number = next_game_number
+                return render(
+                    request,
+                    "mahjong/add_game.html",
+                    {
+                        "form": form,
+                        "next_game_number": next_game_number,
+                        "season_game_count": season_game_count,
+                    },
+                )
+
+            # 同点チェック
+            scores = [
+                data["score"]
+                for data in players_scores
+            ]
+
+            if len(scores) != len(set(scores)):
+                form.add_error(
+                    None,
+                    "同点のプレイヤーがいます。"
+                    "順位を自動判定できないため、点数を確認してください。"
+                )
+
+                return render(
+                    request,
+                    "mahjong/add_game.html",
+                    {
+                        "form": form,
+                        "next_game_number": next_game_number,
+                        "season_game_count": season_game_count,
+                    },
+                )
 
             game = Game.objects.create(
                 season=season,
-                date=date,
-                game_number=game_number
+                date=game_date,
+                game_number=next_game_number
             )
 
-            players_scores.sort(key=lambda x: x["score"], reverse=True)
+            players_scores.sort(
+                key=lambda data: data["score"],
+                reverse=True
+            )
 
-            for rank, data in enumerate(players_scores, start=1):
+            for rank, data in enumerate(
+                players_scores,
+                start=1
+            ):
                 score = data["score"]
-                profit = (score - 30000) / 1000 + UMA[rank]
+
+                profit = (
+                    (score - 30000) / 1000
+                    + UMA[rank]
+                )
 
                 Result.objects.create(
                     game=game,
@@ -117,6 +212,22 @@ def add_game(request):
 
             return redirect("game_list")
 
+        # フォーム自体が無効だった場合も、
+        # 対局番号と進捗を表示できるようにする
+        season_id = request.POST.get("season")
+
+        if season_id:
+            selected_season = Season.objects.filter(
+                id=season_id
+            ).first()
+
+            if selected_season:
+                season_game_count = Game.objects.filter(
+                    season=selected_season
+                ).count()
+
+                next_game_number = season_game_count + 1
+
     else:
         form = GameResultForm()
 
@@ -124,52 +235,71 @@ def add_game(request):
 
         if last_game:
             last_season = last_game.season
-            last_season_game_count = Game.objects.filter(season=last_season).count()
+
+            last_season_game_count = Game.objects.filter(
+                season=last_season
+            ).count()
 
             if last_season_game_count >= 80:
                 season_name = last_season.name
 
                 try:
-                    number = int(
+                    season_number = int(
                         season_name
                         .replace("第", "")
                         .replace("節", "")
                     )
-                    new_season_name = f"第{number + 1}節"
-                except ValueError:
-                    new_season_name = f"{season_name} 次シーズン"
 
-                new_season, created = Season.objects.get_or_create(
-                    name=new_season_name
+                    new_season_name = (
+                        f"第{season_number + 1}節"
+                    )
+
+                except ValueError:
+                    new_season_name = (
+                        f"{season_name} 次シーズン"
+                    )
+
+                selected_season, created = (
+                    Season.objects.get_or_create(
+                        name=new_season_name
+                    )
                 )
 
-                form.fields["season"].initial = new_season
-                next_game_number = 1
-
             else:
-                form.fields["season"].initial = last_season
-                next_game_number = last_season_game_count + 1
+                selected_season = last_season
 
-            results = Result.objects.filter(game=last_game).order_by("rank")
+            season_game_count = Game.objects.filter(
+                season=selected_season
+            ).count()
 
-            for i, result in enumerate(results, start=1):
-                form.fields[f"player{i}"].initial = result.player
+            next_game_number = season_game_count + 1
 
+            form.fields["season"].initial = selected_season
+
+            # 前回の4人を引き継ぐ
+            previous_results = Result.objects.filter(
+                game=last_game
+            ).order_by("rank")
+
+            for i, result in enumerate(
+                previous_results,
+                start=1
+            ):
+                form.fields[f"player{i}"].initial = (
+                    result.player
+                )
+
+        # 日付は当日
         form.fields["date"].initial = dt_date.today()
-
-    return render(request, "mahjong/add_game.html", {
-        "form": form,
-        "next_game_number": next_game_number,
-    })
-
-@login_required
-def game_list(request):
-    games = Game.objects.order_by("-date", "-game_number")
 
     return render(
         request,
-        "mahjong/game_list.html",
-        {"games": games}
+        "mahjong/add_game.html",
+        {
+            "form": form,
+            "next_game_number": next_game_number,
+            "season_game_count": season_game_count,
+        },
     )
 
 @login_required
