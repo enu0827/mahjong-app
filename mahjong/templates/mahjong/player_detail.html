@@ -1,27 +1,9 @@
 {% extends "mahjong/base.html" %}
 
 {% block content %}
-<label for="season-select">表示する成績</label>
-
-    <select
-        id="season-select"
-        name="season"
-        onchange="this.form.submit()"
-    >
-        <option value="">通算</option>
-
-        {% for season in seasons %}
-        <option
-            value="{{ season.id }}"
-            {% if selected_season and season.id == selected_season.id %}
-                selected
-            {% endif %}
-        >
-            {{ season.name }}
-        </option>
-        {% endfor %}
-    </select>
-</form>
+<div class="card">
+    <a class="back-link" href="/">← トップへ戻る</a>
+</div>
 
 <div class="card">
     <p class="card-eyebrow">PLAYER PROFILE</p>
