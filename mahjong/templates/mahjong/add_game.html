@@ -78,7 +78,9 @@
             </div>
         </div>
 
-        <button type="submit">この対局を保存</button>
+        <button type="submit" id="save-button">
+            この対局を保存
+        </button>
     </form>
 </div>
 
@@ -192,6 +194,20 @@
             input.focus();
         });
     });
+</script>
+
+<script>
+document.querySelector("form").addEventListener("submit", function(e) {
+    const button = document.getElementById("save-button");
+
+    if (button.disabled) {
+        e.preventDefault();
+        return;
+    }
+
+    button.disabled = true;
+    button.textContent = "保存中...";
+});
 </script>
 
 {% endblock %}
