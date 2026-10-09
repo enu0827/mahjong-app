@@ -6,6 +6,10 @@ from .models import Game, Result, Season, Player
 from .forms import GameResultForm
 import json
 from django.contrib.auth.decorators import login_required
+from datetime import datetime, time, timedelta
+from django.utils import timezone
+from django.db.models import Sum, Count, Avg
+
 
 UMA = {
     1: 50,
@@ -713,15 +717,52 @@ def player_detail(request, player_id):
 
 @login_required
 def daily_summary(request):
-    date = request.GET.get("date")
+    # 日本時間の現在日時
+    now = timezone.localtime()
 
-    games = Game.objects.all()
+    # 表示する日付を取得
+    date_str = request.GET.get("date")
 
-    if date:
-        games = games.filter(date=date)
+    if date_str:
+        try:
+            target_date = datetime.strptime(
+                date_str, "%Y-%m-%d"
+            ).date()
+        except ValueError:
+            target_date = now.date()
+    else:
+        # 午前4時までは前日扱い
+        target_date = now.date()
 
-    results = Result.objects.filter(game__in=games)
+        if now.time() < time(4, 0):
+            target_date -= timedelta(days=1)
 
+    # 指定日の午前4時
+    start = timezone.make_aware(
+        datetime.combine(target_date, time(4, 0)),
+        timezone.get_current_timezone()
+    )
+
+    # 翌日の午前4時
+    end = timezone.make_aware(
+        datetime.combine(
+            target_date + timedelta(days=1),
+            time(4, 0)
+        ),
+        timezone.get_current_timezone()
+    )
+
+    # 登録日時で対局を取得
+    games = Game.objects.filter(
+        created_at__gte=start,
+        created_at__lt=end
+    )
+
+    results = Result.objects.filter(
+        game__in=games
+    )
+
+    # 暫定成績を集計
     summary = (
         results
         .values("player__id", "player__name")
@@ -732,13 +773,18 @@ def daily_summary(request):
         )
         .order_by("-total_profit")
     )
+
     for player in summary:
         player["money"] = player["total_profit"] * 50
 
-    return render(request, "mahjong/daily_summary.html", {
-        "date": date,
-        "summary": summary,
-    })
+    return render(
+        request,
+        "mahjong/daily_summary.html",
+        {
+            "date": target_date,
+            "summary": summary,
+        }
+    )
 
 @login_required
 def edit_game(request, game_id):
